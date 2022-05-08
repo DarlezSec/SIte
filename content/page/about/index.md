@@ -1,6 +1,6 @@
 ---
 title: About
-description: Hugo, the world's fastest framework for building websites
+description: My social networks and a little about me.
 date: '2019-02-28'
 aliases:
   - about-us
@@ -15,20 +15,11 @@ menu:
             icon: user
 ---
 
-Written in Go, Hugo is an open source static site generator available under the [Apache Licence 2.0.](https://github.com/gohugoio/hugo/blob/master/LICENSE) Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
+Hello friend, I'm Darlez.Sec, also known as "samsepi0l" I'm a CTF player and a lover of hacker culture, I'm a student of quantum physics and astronomy, I have a community on Cybersecurity on the Telegram platform where they talk about Pentesting topics , Programming, Computer Forensics, Cryptography among other things... if you like to join you will find the link below in the section of my social networks
 
-Hugo makes use of a variety of open source projects including:
-
-* https://tryhackme.com/p/darlez.sec
-* https://github.com/DarlezSec/
-* https://twitter.com/DarlezSec
-* https://instagram.com/darlez.sec
-* https://t.me/Un0zandC3r0z
-* https://www.youtube.com/channel/UCsUZ7PYtQS58HEaRfIVQamw
-Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
-
-Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.
-
-Websites built with Hugo are extremelly fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.
-
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+* [TryHackMe](https://tryhackme.com/p/darlez.sec).
+* [Github](https://github.com/DarlezSec/).
+* [Twitter](https://twitter.com/DarlezSec).
+* [Instagram](https://instagram.com/darlez.sec).
+* [My Community](https://t.me/Un0zandC3r0z).
+* [YouTube](https://www.youtube.com/channel/UCsUZ7PYtQS58HEaRfIVQamw).
