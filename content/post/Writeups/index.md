@@ -2,7 +2,7 @@
 author = "Darlez.Sec"
 title = "Crocc Crew"
 date = "2019-03-11"
-description = "WriteUp Ctf Crocc Crew donde se ven temas de explotacion a AD = Active Directory. Kerberos, Evil Wirnm"
+description = "CTF Crocc Crew Nivel insane, donde se ven temas de explotacion a Kerberos, AD = Active Directory, Evil-WinRM entre otras cosas.."
 tags = [
 "markdown",
 "css",
