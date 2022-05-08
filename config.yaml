@@ -54,7 +54,7 @@ params:
 
     sidebar:
         emoji: 
-        subtitle: hello friend, hello friend? I'm Darlez.Sec, hacker culture lover and CTF player.
+        subtitle: Hello friend, Hello friend? I'm Darlez.Sec, hacker culture lover and CTF player.
         avatar: 
             enabled: true
             local: false
