@@ -236,5 +236,6 @@ como ven nos tiro esta ruta >>> C:\PerfLogs\Admin entremos con cd C:\PerfLogs\Ad
 
 hacemos un type root.txt y ahi estaria la bandera root, y con eso estaria terminada la ctf, espero que les haya agradado el video y cualquier duda o error que tengan en cualquiera de las ctfs que suba al canal me pueden preguntar por privado, me encuentran como @samsepiol gracias por ver el video.
 
-Link My Community: t.me/Un0zandC3r0z
+Link [My Community](https://t.me/Un0zandC3r0z).
+
 
