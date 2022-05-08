@@ -2,15 +2,15 @@ baseurl: https://example.com
 languageCode: en-us
 theme: hugo-theme-stack
 paginate: 5
-title: Example Site
+title: Darlez.Sec
 
 languages:
     en:
         languageName: English
-        title: Example Site
+        title: Darlez.Sec
         weight: 1
     zh-cn:
-        languageName: 中文
+        languageName: Español
         title: 演示站点
         weight: 2
     ar:
@@ -53,12 +53,12 @@ params:
         lastUpdated: Jan 02, 2006 15:04 MST
 
     sidebar:
-        emoji: 🍥
-        subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        avatar:
+        emoji: 
+        subtitle: hello friend, hello friend? I'm Darlez.Sec, hacker culture lover and CTF player.
+        avatar: 
             enabled: true
-            local: true
-            src: img/avatar.png
+            local: false
+            src: https://1.bp.blogspot.com/_dAGq_7k2IB8/TGroYFW87lI/AAAAAAAACHE/P7Wk_cP8TA4/s1600/curie.jpg
 
     article:
         math: false
@@ -197,13 +197,13 @@ menu:
     social:
         - identifier: github
           name: GitHub
-          url: https://github.com/CaiJimmy/hugo-theme-stack
+          url: https://github.com/DarlezSec
           params:
               icon: brand-github
 
         - identifier: twitter
           name: Twitter
-          url: https://twitter.com
+          url: https://twitter.com/DarlezSec
           params:
               icon: brand-twitter
 
