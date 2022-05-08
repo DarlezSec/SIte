@@ -24,7 +24,7 @@ Hugo makes use of a variety of open source projects including:
 * https://twitter.com/DarlezSec
 * https://instagram.com/darlez.sec
 * https://t.me/Un0zandC3r0z
-
+* https://www.youtube.com/channel/UCsUZ7PYtQS58HEaRfIVQamw
 Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
 
 Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.

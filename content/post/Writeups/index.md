@@ -1,5 +1,5 @@
 +++
-author = "D0loresH4ze"
+author = "Darlez.Sec"
 title = "Crocc Crew"
 date = "2019-03-11"
 description = "WriteUp Ctf Crocc Crew donde se ven temas de explotacion a AD = Active Directory. Kerberos, Evil Wirnm"
@@ -28,7 +28,7 @@ Explicacion de cada parametro seleccionado:
 
 -sS para habilitar la opcion SYN Port Scan, --min-rate 5000 para que no envie paquetes menores a 5000 por segundo, -sCV para que lanze una serie de scripts de enumeraciones y para que nos saque banner y versiones de los servicios, -p- para que nos haga un escaneo de los 65535 puertos, -A para habilitar la deteccion del SO = Sistema Operativo, la deteccion de versiones y escaneo de rutas, -oN para guardarlo en un formato por default de nmap, en mi caso yo le coloque el nombre de "nmap_all.txt"
 
-Enumeracion de Directorios:
+#Enumeracion de Directorios:
 
 usaremos la herramienta de dirsearch para enumerar directorios de la pagina...
 
@@ -85,7 +85,7 @@ como vemos tampoco nos dio acceso al smbclient asi que usaremos la herramienta d
 
 para los que tengan una idea de lo que va esta herrameinta les dejo un corto resumen:
 
-Desde hace unos ya tenemos disponible en los repositorios de Kali Linux la herramienta SMBMap, que permite enumerar recursos compartidos SAMBA a lo largo de un dominio. Y no sólo eso, enumera contenidos y permisos, soporta pass-the-hash, descarga/sube/borra archivos, busca patrones de nombres de archivo con la opción de autodescargarlos e incluso ejecuta comandos en remoto.
+#Desde hace unos ya tenemos disponible en los repositorios de Kali Linux la herramienta SMBMap, que permite enumerar recursos compartidos SAMBA a lo largo de un dominio. Y no sólo eso, enumera contenidos y permisos, soporta pass-the-hash, descarga/sube/borra archivos, busca patrones de nombres de archivo con la opción de autodescargarlos e incluso ejecuta comandos en remoto.
 
 con eso aprendido podemos comenzar
 
@@ -118,7 +118,7 @@ ahora vamos con la siguiente pregunta que nos hace TryHackMe ¿Cuál es el nombr
 
 usaremos la herramienta de ldapdump para ver los usuarios, les dejare un resumen de lo que es basicamente esta herramienta...
 
-El protocolo ligero de acceso a directorios (en inglés: Lightweight Directory Access Protocol, también conocido por sus siglas de LDAP) hace referencia a un protocolo a nivel de aplicación que permite el acceso a un servicio de directorio ordenado y distribuido para buscar diversa información en un entorno de red.
+#El protocolo ligero de acceso a directorios (en inglés: Lightweight Directory Access Protocol, también conocido por sus siglas de LDAP) hace referencia a un protocolo a nivel de aplicación que permite el acceso a un servicio de directorio ordenado y distribuido para buscar diversa información en un entorno de red.
 
 con eso aprendido usaremos la dicha herramineta haremos un:
 
@@ -133,9 +133,9 @@ En domain_users.html podremos ver varios usuarios incluida la respuesta a la seg
 
 si no se confian de como sacamos y sabemos de que ese era el usuario, pues usaremos otra herramienta para ver la lista de usuarios..
 
-Explicacion de la herramienta enum4linux:
+#Explicacion de la herramienta enum4linux:
 
-enum4linux es una herramienta de enumeración de windows y sistemas samba. Esta intenta ofrecer una funcionabilidad similar a enum.exe antes disponible en www.bindview.com. Esta escrito en Perl y es básicamente incorpora todas las herramientas de smbclient, rpclient, net y nmblookup.
+#enum4linux es una herramienta de enumeración de windows y sistemas samba. Esta intenta ofrecer una funcionabilidad similar a enum.exe antes disponible en www.bindview.com. Esta escrito en Perl y es básicamente incorpora todas las herramientas de smbclient, rpclient, net y nmblookup.
 
 ahora si, haremos un enum4linux -u 'Visitor' -p 'GuestLogin!' -U 10.10.140.48 y veremos que nos dio una lista bastante extensa de usuarios, si van haciendo el procedimiento conmigo entonces les sera facil reconocer el usuario, con eso completado 
 
@@ -148,7 +148,7 @@ Busqueda de Vulnerabilidades:
 usaremos la herramienta de impacket, para los que no sepan que es les dejare una
 explicacion:
 
-Impacket es una colección de clases de Python para trabajar con protocolos de red. Impacket se enfoca en proporcionar acceso programático de bajo nivel a los paquetes y, para algunos protocolos (por ejemplo, SMB1-3 y MSRPC), la implementación del protocolo en sí. Los paquetes pueden construirse desde cero, así como analizarse a partir de datos sin procesar, y la API orientada a objetos simplifica el trabajo con jerarquías profundas de protocolos. La biblioteca proporciona un conjunto de herramientas como ejemplos de lo que se puede hacer dentro del contexto de esta biblioteca
+#Impacket es una colección de clases de Python para trabajar con protocolos de red. Impacket se enfoca en proporcionar acceso programático de bajo nivel a los paquetes y, para algunos protocolos (por ejemplo, SMB1-3 y MSRPC), la implementación del protocolo en sí. Los paquetes pueden construirse desde cero, así como analizarse a partir de datos sin procesar, y la API orientada a objetos simplifica el trabajo con jerarquías profundas de protocolos. La biblioteca proporciona un conjunto de herramientas como ejemplos de lo que se puede hacer dentro del contexto de esta biblioteca
 
 con esto aprendido podemos comenzar:
 
@@ -220,7 +220,7 @@ evil-winrm -i 10.10.206.226 -u Administrator -H aad3b435b51404eeaad3b435b51404ee
 
 -i hace referencia a IP -u hace referencia a Usuario -H hace refencia a HASH
 
-Escalada De Privilegios:
+#Escalada De Privilegios:
 
 comenzaremos con una busqueda rapida a los archivos txt y user.
 
