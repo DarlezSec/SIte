@@ -124,6 +124,7 @@ ahora vamos con la siguiente pregunta que nos hace TryHackMe ¿Cuál es el nombr
 
 usaremos la herramienta de ldapdump para ver los usuarios, les dejare un resumen de lo que es basicamente esta herramienta...
 
+#### ¿Que es LDAPdump?
 `El protocolo ligero de acceso a directorios (en inglés: Lightweight Directory Access Protocol, también conocido por sus siglas de LDAP) hace referencia a un protocolo a nivel de aplicación que permite el acceso a un servicio de directorio ordenado y distribuido para buscar diversa información en un entorno de red.`
 
 con eso aprendido usaremos la dicha herramineta haremos un:
