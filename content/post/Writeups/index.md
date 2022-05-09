@@ -28,7 +28,7 @@ Explicacion de cada parametro seleccionado:
 
 `-sS para habilitar la opcion SYN Port Scan, --min-rate 5000 para que no envie paquetes menores a 5000 por segundo, -sCV para que lanze una serie de scripts de enumeraciones y para que nos saque banner y versiones de los servicios, -p- para que nos haga un escaneo de los 65535 puertos, -A para habilitar la deteccion del SO = Sistema Operativo, la deteccion de versiones y escaneo de rutas, -oN para guardarlo en un formato por default de nmap, en mi caso yo le coloque el nombre de "nmap_all.txt"`
 
-#### Enumeracion de Directorios:`
+#### Enumeracion de Directorios:
 
 usaremos la herramienta de dirsearch para enumerar directorios de la pagina...
 
