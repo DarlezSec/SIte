@@ -126,7 +126,7 @@ con eso aprendido podemos comenzar
 
 ![smbmap](map.png)
 
-`-u` para el usuario -p para la password `-r` para la ruta.
+`-u` para el usuario `-p` para la password `-r` para la ruta.
 
 Con `-r` nos estaremos moviendo de directorios y con `--download` los estariamos descargando
  
@@ -187,7 +187,7 @@ pista: tiene el mismo nombre que la room
 
 basicamente solo busque algun nombre que coincidiera con la ctf, entre ellos estaba ese usuario...
 
-Busqueda de Vulnerabilidades:
+#### Busqueda de Vulnerabilidades:
 
 usaremos la herramienta de impacket, para los que no sepan que es les dejare una
 explicacion:
@@ -283,6 +283,4 @@ como ven nos tiro esta ruta >>> `C:\PerfLogs\Admin entremos con cd C:\PerfLogs\A
 
 hacemos un `type root.txt` y ahi estaria la bandera root, y con eso estaria terminada la ctf, espero que les haya agradado el video y cualquier duda o error que tengan en cualquiera de las ctfs que suba al canal me pueden preguntar por privado, me encuentran como @samsepiol en la plataforma de telegram.
 
-Link [My Community](https://t.me/Un0zandC3r0z).
-
-
+My Community](https://t.me/Un0zandC3r0z).
