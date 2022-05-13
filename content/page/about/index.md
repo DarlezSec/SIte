@@ -1,7 +1,7 @@
 ---
 title: About
 description: My social networks and a little about me.
-date: '2019-02-28'
+date: '2022-05-13'
 aliases:
   - about-us
   - about-hugo
@@ -21,5 +21,4 @@ Hello friend, I'm Darlez.Sec, also known as "samsepi0l" I'm a CTF player and a l
 * [Github](https://github.com/DarlezSec/).
 * [Twitter](https://twitter.com/DarlezSec).
 * [Instagram](https://instagram.com/darlez.sec).
-* [My Community](https://t.me/Un0zandC3r0z).
 * [YouTube](https://www.youtube.com/channel/UCsUZ7PYtQS58HEaRfIVQamw).
