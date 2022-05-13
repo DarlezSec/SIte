@@ -6,9 +6,9 @@ links:
     website: https://t.me/Un0zandC3r0z
     image: https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mr-robot-1557266089.jpg?crop=0.9765625xw:1xh;center,top&resize=640:*
   - title: Foro Telegram Un0z & C3r0z
-    description: un canal en Telegram dedicado a subir contenido sobre Ciberseguridad, entre ellos como Cursos, Pdf's Libros entre mas cosas....
+    description: Telegram channel dedicated to uploading content on Cybersecurity, including Courses, Pdf's Books and more
     website: https://t.me/Cer0z_Rep0sitory  
-    image: https://icones.pro/wp-content/uploads/2021/02/instagram-logo-icone4.png
+    image: https://www.hollywoodreporter.com/wp-content/uploads/2016/07/Mr_Robot_Most_Mind_Bending_Twists_2_H_2016_0.jpg?w=1024
   - title:
     description:
     website: 

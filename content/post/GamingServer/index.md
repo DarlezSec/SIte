@@ -1,7 +1,7 @@
 +++
 author = "Darlez.Sec"
 title = "Reto CTF GamingServer Platafroma TryHackMe, Nivel Easy."
-date = "2019-03-11"
+date = "2022-05-13"
 description = "Metodologia que aplico en la CTF GamingServer de la plataforma TryHackMe"
 tags = [
 "Metodologias",
