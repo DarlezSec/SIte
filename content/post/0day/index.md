@@ -1,8 +1,8 @@
 +++
 author = "Darlez.Sec"
-title = "Ctf 0day Nivel Medium Plataforma TryHackMe."
+title = "Reto CTF 0day Nivel Medium Plataforma TryHackMe."
 date = "2022-05-13"
-description = "Un simple Post para explicar la Metodologia que aplique en este Reto CTF."
+description = "Metodologia que aplico en la CTF 0day de la plataforma TryHackMe."
 tags = [
 "Metodologias",
 "My Mem0ri3s",
