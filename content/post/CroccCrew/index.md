@@ -4,14 +4,14 @@ title = "Crocc Crew"
 date = "2019-03-11"
 description = "CTF Crocc Crew Nivel insane, donde se ven temas de explotacion a Kerberos, AD = Active Directory, Evil-WinRM entre otras cosas.."
 tags = [
-"markdown",
-"css",
-"html",
-"themes",
+"Writeup",
+"TryHackMe",
+"CTF",
+"Crocc Crew",
 ]
 categories = [
-"themes",
-"syntax",
+"TryHackMe",
+"Writeups",
 ]
 series = ["Themes Guide"]
 aliases = ["migrate-from-jekyl"]
@@ -55,7 +55,7 @@ veremos que nos dejo una carpeta asi que entraremos con cd dirsearch
 ahora haremos un `./dirsearch.py -u http://10.10.210.71`
 
 ![dirsearch](dir.png)
-con la enumeracion realizada veremos que hay un /robots.txt , para los que no sepan que son los robots.txt basicamente:
+con la enumeracion realizada veremos que hay un `/robots.txt` , para los que no sepan que son los robots.txt basicamente:
 
 #### ¿Que es robots.txt?
 
@@ -73,7 +73,7 @@ haremos un `curl http://10.10.140.48/db-config.bak`
 
 y tendremos las primeras credenciales, 
 
-vemos que hay smbclient pero antes que nada necesitaremos algunas credenciales para acceder, he intentando con las que nos dio /db-config-bak pero no nos ha funcionado.. 
+vemos que hay smbclient pero antes que nada necesitaremos algunas credenciales para acceder, he intentando con las que nos dio `/db-config-bak` pero no nos ha funcionado.. 
 
 ahora probaremos con la herramienta `rpcclient`
  
@@ -89,15 +89,17 @@ ya estamos como cliente de rpc ahora escribiremos `enumprivs`
 
 ![rpcclient](rpcclient.png)
 
-El comando `enumprivs` reveló los privilegios del usuario actual en la máquina. Podemos ver que `"SeEnableDelegationPrivilege"` aparece junto con "SeDelegateSessionUserImpersonatePrivilege". "SeEnableDelegationPrivilege" determina si una cuenta de usuario puede permitir que se confíe en las cuentas de usuario para la delegación. Esto puede influir en la delegación restringida
+El comando `enumprivs` reveló los privilegios del usuario actual en la máquina. Podemos ver que `"SeEnableDelegationPrivilege"` aparece junto con `"SeDelegateSessionUserImpersonatePrivilege"`. `"SeEnableDelegationPrivilege"` determina si una cuenta de usuario puede permitir que se confíe en las cuentas de usuario para la delegación. Esto puede influir en la delegación restringida
 
 Nota: cada vez que yo ponga una ip ustedes tendran que cambiarla a por la de su maquina.
 
-nos conectaremos remotamente al escritorio de windows usando RPD ( Remote Desktop Protocol ) 
+nos conectaremos remotamente al escritorio de windows usando RPD `( Remote Desktop Protocol )` 
 
 haremos un `rdesktop -f -u "" 10.10.140.48`
 
-nos preguntara ¿Confía en este certificado (sí/no)? escribiremos que si, o yes
+nos preguntara `¿Confía en este certificado (sí/no)?`
+
+escribiremos que `si`, o `yes`
 
 ![Remote Desktop Protocol](rdesktop.png)
 
@@ -119,6 +121,8 @@ para los que tengan una idea de lo que va esta herrameinta les dejo un corto res
 ![Samba, Active Directory](samba.png)
 
 `Desde hace unos ya tenemos disponible en los repositorios de Kali Linux la herramienta SMBMap, que permite enumerar recursos compartidos SAMBA a lo largo de un dominio. Y no sólo eso, enumera contenidos y permisos, soporta pass-the-hash, descarga/sube/borra archivos, busca patrones de nombres de archivo con la opción de autodescargarlos e incluso ejecuta comandos en remoto.`
+
+#### Obtencion de la primera Bandera!!!
 
 con eso aprendido podemos comenzar
 
@@ -153,7 +157,11 @@ haremos un crackmapexec `smb 10.10.206.226 -u 'Visitor' -p 'GuestLogin!'`
 
 vemos que el dominio es `COOCTUS.CORP`, nos servira para el futuro.
 
-ahora vamos con la siguiente pregunta que nos hace TryHackMe ¿Cuál es el nombre de la cuenta que plantó Crocc Crew? para esto usaremos la herramienta de LDAP para encontrar el usuario con las credenciales que anteriormente hemos encontrado...
+ahora vamos con la siguiente pregunta que nos hace TryHackMe 
+
+#### Pregunta 2 Usuario  plantado.
+
+¿Cuál es el nombre de la cuenta que plantó Crocc Crew? para esto usaremos la herramienta de LDAP para encontrar el usuario con las credenciales que anteriormente hemos encontrado...
 
 usaremos la herramienta de ldapdump para ver los usuarios, les dejare un resumen de lo que es basicamente esta herramienta...
 
@@ -164,6 +172,8 @@ usaremos la herramienta de ldapdump para ver los usuarios, les dejare un resumen
 `El protocolo ligero de acceso a directorios (en inglés: Lightweight Directory Access Protocol, también conocido por sus siglas de LDAP) hace referencia a un protocolo a nivel de aplicación que permite el acceso a un servicio de directorio ordenado y distribuido para buscar diversa información en un entorno de red.`
 
 con eso aprendido usaremos la dicha herramineta haremos un:
+
+#### Enumeracion con LDAP
 
 ip=laipdetumaquina, ejemplo ( ip=10.10.71.209 )
 
@@ -180,6 +190,8 @@ si no se confian de como sacamos y sabemos de que ese era el usuario, pues usare
 #### Explicacion de la herramienta enum4linux:
 
 `enum4linux es una herramienta de enumeración de windows y sistemas samba. Esta intenta ofrecer una funcionabilidad similar a enum.exe antes disponible en www.bindview.com. Esta escrito en Perl y es básicamente incorpora todas las herramientas de smbclient, rpclient, net y nmblookup.`
+
+#### Enumeracion de usuarios con enum4linux:
 
 ahora si, haremos un `enum4linux -u 'Visitor' -p 'GuestLogin!' -U 10.10.140.48` y veremos que nos dio una lista bastante extensa de usuarios, si van haciendo el procedimiento conmigo entonces les sera facil reconocer el usuario, con eso completado 
 
@@ -283,4 +295,4 @@ como ven nos tiro esta ruta >>> `C:\PerfLogs\Admin entremos con cd C:\PerfLogs\A
 
 hacemos un `type root.txt` y ahi estaria la bandera root, y con eso estaria terminada la ctf, espero que les haya agradado el video y cualquier duda o error que tengan en cualquiera de las ctfs que suba al canal me pueden preguntar por privado, me encuentran como @samsepiol en la plataforma de telegram.
 
-My Community](https://t.me/Un0zandC3r0z).
+[My Community](https://t.me/Un0zandC3r0z).
