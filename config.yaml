@@ -9,9 +9,9 @@ languages:
         languageName: English
         title: Darlez.Sec
         weight: 1
-    zh-cn:
+    es:
         languageName: Español
-        title: 演示站点
+        title: Darlez.Sec
         weight: 2
     ar:
         languageName: عربي
