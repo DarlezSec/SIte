@@ -2,7 +2,7 @@
 author = "Darlez.Sec"
 title = "Reto CTF Infero Nivel Medium, Plataforma TryHackMe"
 date = "2022-05-13"
-description = "n simple Post para explicar la Metodologia que aplique en este Reto CTF"
+description = "Metodologia que aplico en la CTF Inferno de la plataforma TryHackMe."
 tags = [
 "Metodologias",
 "My Mem0ri3s",

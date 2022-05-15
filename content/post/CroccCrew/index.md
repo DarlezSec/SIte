@@ -246,7 +246,7 @@ ahora haremos un `export KRB5CCNAME=Administrator.ccache` para el uso de la secu
 
 para ahorrarnos futuros errores y tiempo añadiremos esto a nuestra /etc/hosts con la ip de su maquina ( DC.COOCTUS.CORP ) eso añadiran claramente ira sin los parentesis, aqui un ejemplo de como tuvo que quedar
 
-```yaml
+```html
 ___________________________________________________________
 127.0.0.1       localhost
 127.0.1.1       kali
@@ -257,6 +257,7 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ____________________________________________________________
 ```
+
 ahora haremos un `impacket-secretsdump -k -no-pass DC.COOCTUS.CORP`
 
 Una vez que hayamos hecho eso, debería volcar con éxito los hashes NTLM del usuario.
