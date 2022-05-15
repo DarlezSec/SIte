@@ -15,7 +15,7 @@ series = ["Themes Guide"]
 aliases = ["migrate-from-jekyl"]
 image = "https://i.imgur.com/lCvqxKK.png"
 +++
-# Reto CTF 0day, Nivel Medium Plataforma TryHackMe.
+# Reto CTF 0day Nivel Medium, Plataforma TryHackMe.
 
 ![0DAY](0day.png)
 
