@@ -1,5 +1,5 @@
 ---
-title: "My Mem0ri3s"
+title: "Mem0ri3s"
 description: "This is an example category"
 slug: "test"
 image: "https://i.gifer.com/DirG.gif"
