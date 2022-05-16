@@ -5,10 +5,10 @@ date = "2022-05-13"
 description = "Metodologia que aplico en la CTF 0day de la plataforma TryHackMe."
 tags = [
 "Metodologias",
-"My Mem0ri3s",
+"Mem0ri3s",
 ]
 categories = [
-"My Mem0ri3s",
+"Mem0ri3s",
 "Metodologias",
 ]
 series = ["Themes Guide"]

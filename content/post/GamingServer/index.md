@@ -5,11 +5,11 @@ date = "2022-05-13"
 description = "Metodologia que aplico en la CTF GamingServer de la plataforma TryHackMe"
 tags = [
 "Metodologias",
-"My Mem0ri3s",
+"Mem0ri3s",
 ]
 categories = [
 "Metodologias",
-"My Mem0ri3s",
+"Mem0ri3s",
 ]
 series = ["Themes Guide"]
 aliases = ["migrate-from-jekyl"]

@@ -12,6 +12,7 @@ tags = [
 categories = [
 "TryHackMe",
 "Writeups",
+"CTF",
 ]
 series = ["Themes Guide"]
 aliases = ["migrate-from-jekyl"]
