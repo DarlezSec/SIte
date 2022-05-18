@@ -1,6 +1,6 @@
 +++
 author = "Darlez.Sec"
-title = "Reto CTF You're in a cave, Nivel insane plataforma TryHackMe."
+title = "Reto CTF You're in a cave, Nivel Insane plataforma TryHackMe."
 date = "2022-05-13"
 description = "Metodologia que aplico en la CTF You're in a cave de la plataforma TryHackMe."
 tags = [
