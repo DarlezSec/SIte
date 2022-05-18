@@ -15,7 +15,7 @@ series = ["Themes Guide"]
 aliases = ["migrate-from-jekyl"]
 image = "plantilla.png"
 +++
-# Reto CTF You're in a cave Nivel Insane, Plataforna TryHackMe.
+## Reto CTF You're in a cave Nivel Insane, Plataforna TryHackMe.
 
 ![You're in a cave.](cave.png)
 

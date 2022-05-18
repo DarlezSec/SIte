@@ -15,7 +15,7 @@ series = ["Themes Guide"]
 aliases = ["migrate-from-jekyl"]
 image = "https://tryhackme-images.s3.amazonaws.com/room-icons/04838068cabd2452b322e06418cce864.png"
 +++
-# Reto CTF Inferno Nivel Medium, Plataforma TryHackMe.
+### Reto CTF Inferno Nivel Medium, Plataforma TryHackMe.
 
 ![Inderno TryHackMe.](inferno.png)
 
