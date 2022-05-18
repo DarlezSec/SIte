@@ -15,7 +15,7 @@ menu:
             icon: user
 ---
 
-Hello friend, I'm Darlez.Sec, also known as "samsepi0l" I'm a CTF player and a lover of hacker culture, I'm a student of quantum physics and astronomy, I have a community on Cybersecurity on the Telegram platform where they talk about Pentesting topics , Programming, Computer Forensics, Cryptography among other things... if you like to join you will find the link below in the section of my social networks
+Hello friend, I'm Darlez.Sec, also known as "samsepi0l" I'm a CTF player and a lover of hacker culture, I'm a student of quantum physics and astronomy, I have a community on Cybersecurity on the Telegram platform where they talk about Pentesting topics , Programming, Computer Forensics, Cryptography among other things... if you like to join you will find the link below in the section of my social networks.
 
 * [TryHackMe](https://tryhackme.com/p/darlez.sec).
 * [Github](https://github.com/DarlezSec/).
