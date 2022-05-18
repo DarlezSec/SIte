@@ -168,7 +168,7 @@ usaremos la herramienta de ldapdump para ver los usuarios, les dejare un resumen
 
 #### ¿Que es LDAPdump?
 
-![ldap](ldap.png)
+![ldap](ldapp.gif)
 
 `El protocolo ligero de acceso a directorios (en inglés: Lightweight Directory Access Protocol, también conocido por sus siglas de LDAP) hace referencia a un protocolo a nivel de aplicación que permite el acceso a un servicio de directorio ordenado y distribuido para buscar diversa información en un entorno de red.`
 
