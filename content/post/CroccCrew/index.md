@@ -19,6 +19,15 @@ aliases = ["migrate-from-jekyl"]
 image = "https://tryhackme-images.s3.amazonaws.com/room-icons/d387f5c6b5c2bfd07451dd27c187e185.png"
 +++
 
+ `Columna` | `Detalles`
+-----------|---------
+ `Nombre`  | `Crocc Crew`
+   `IP`    | `10.10.47.234`
+   `Puntos`| `150`   
+   `Os`    | `Windows`
+`Dificultad` | `Hard`
+ `Creador` | [TryHackMe](https://tryhackme.com/p/tryhackme)
+
 #### Reconocimiento: 
 
 Usaremos la herramienta de nmap para escanear puertos y versiones...
