@@ -25,7 +25,7 @@ image = "https://tryhackme-images.s3.amazonaws.com/room-icons/d387f5c6b5c2bfd074
    `IP`    | `10.10.47.234`
    `Puntos`| `150`   
    `Os`    | `Windows`
-`Dificultad` | `Hard`
+`Dificultad` | `Insane`
  `Creador` | [TryHackMe](https://tryhackme.com/p/tryhackme)
 
 #### Reconocimiento: 
@@ -89,7 +89,7 @@ Disallow:
 
 y vemos que nos da 3 directorios, veamos que hay en ellos.
 
-haremos un `curl http://10.10.140.48/db-config.bak`
+haremos un `curl http://10.10.140.48/backdoor.php`
 
 ````html
 <!DOCTYPE html>
