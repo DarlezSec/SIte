@@ -21,7 +21,6 @@ Hello friend, I'm Darlez.Sec, also known as "samsepi0l" I'm a CTF player and a l
 [![Github](https://img.shields.io/static/v1?label=&message=+Github&color=101010&style=for-the-badge&logo=github&logoColor=%white)](https://github.com/DarlezSec)
 [![YouTube](https://img.shields.io/badge/youtube-101010?style=for-the-badge&logo=youtube&logoColor=ff0000&labelColor=101010)](https://www.youtube.com/channel/UCsUZ7PYtQS58HEaRfIVQamw)
 [![Twitter](https://img.shields.io/badge/twitter-101010?style=for-the-badge&logo=twitter&logoColor=101010e&labelColor=101010)](https://twitter.com/darlezsec)
-[![Discord](https://img.shields.io/badge/discord-101010?style=for-the-badge&logo=discord&logoColor=white&labelColor=101010)](https://mouredev.com/discord)
 [![TryHackMe](https://img.shields.io/static/v1?label=&message=+TryHackMe&color=101010&style=for-the-badge&logo=tryhackme&logoColor=white)](https://tryhackme/p/darlez.sec)
 [![Web](https://img.shields.io/badge/WEBSITE-101010?style=for-the-badge&logo=dev.to&logoColor=white&labelColor=101010)](https://darlezsec.vercel.app)
 [![Instagram](https://img.shields.io/badge/instagram-101010?style=for-the-badge&logo=instagram&logoColor=d7075f&labelColor=101010)](https://instagram.com/Darlez.Sec)
