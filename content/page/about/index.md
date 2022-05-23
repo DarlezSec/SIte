@@ -14,17 +14,17 @@ menu:
         params:
             icon: user
 ---
-   ![](https://i.pinimg.com/originals/a4/b2/cf/a4b2cf52d8ed2e49e10c7eecca6777a3.gif)
+   ![](https://c.tenor.com/5fXOP8eurtkAAAAC/mr-robot.gif)
 
-`Hello friend, I'm Darlez.Sec, also known as "samsepi0l" I'm a CTF player and a lover of hacker culture, I'm a student of quantum physics and astronomy, I have a community on Cybersecurity on the Telegram platform where they talk about Pentesting topics , Programming, Computer Forensics, Cryptography among other things... if you like to join you will find the link below in the section of my social networks.`
+Hello friend, I'm Darlez.Sec, also known as "samsepi0l" I'm a CTF player and a lover of hacker culture, I'm a student of quantum physics and astronomy, I have a community on Cybersecurity on the Telegram platform where they talk about Pentesting topics , Programming, Computer Forensics, Cryptography among other things... if you like to join you will find the link below in the section of my social networks.
 
-[![Telegram](https://img.shields.io/static/v1?label=&message=+Telegram&color=0c0809&style=for-the-badge&logo=Telegram&logoColor=white)](https://t.me/Un0zandC3r0z)
-[![Github](https://img.shields.io/static/v1?label=&message=+Github&color=101010&style=for-the-badge&logo=github&logoColor=white)](https://github.com/DarlezSec)
-[![YouTube](https://img.shields.io/badge/youtube-101010?style=for-the-badge&logo=youtube&logoColor=ff0000&labelColor=0c0809)](https://www.youtube.com/channel/UCsUZ7PYtQS58HEaRfIVQamw)
-[![Twitter](https://img.shields.io/badge/twitter-101010?style=for-the-badge&logo=twitter&logoColor=101010e&labelColor=0c0809)](https://twitter.com/darlezsec)
-[![Web](https://img.shields.io/badge/WEBSITE-101010?style=for-the-badge&logo=dev.to&logoColor=white&labelColor=0c0809)](https://darlezsec.vercel.app)
-[![Instagram](https://img.shields.io/badge/instagram-101010?style=for-the-badge&logo=instagram&logoColor=d7075f&labelColor=#0c0809)](https://instagram.com/Darlez.Sec)
-[![TikTok](https://img.shields.io/badge/TIKT0K-101010?style=for-the-badge&logo=tiktok&logoColor=white&labelColor=0c0809)](https://tiktok.com/@.samsepi0l)
+[![Telegram](https://img.shields.io/static/v1?label=&message=+Telegram&color=303030&style=for-the-badge&logo=Telegram&logoColor=303030)](https://t.me/Un0zandC3r0z)
+[![Github](https://img.shields.io/static/v1?label=&message=+Github&color=101010&style=for-the-badge&logo=github&logoColor=%303030	)](https://github.com/DarlezSec)
+[![YouTube](https://img.shields.io/badge/youtube-101010?style=for-the-badge&logo=youtube&logoColor=ff0000&labelColor=303030)](https://www.youtube.com/channel/UCsUZ7PYtQS58HEaRfIVQamw)
+[![Twitter](https://img.shields.io/badge/twitter-101010?style=for-the-badge&logo=twitter&logoColor=101010e&labelColor=303030)](https://twitter.com/darlezsec)
+[![Web](https://img.shields.io/badge/WEBSITE-101010?style=for-the-badge&logo=dev.to&logoColor=white&labelColor=303030)](https://darlezsec.vercel.app)
+[![Instagram](https://img.shields.io/badge/instagram-101010?style=for-the-badge&logo=instagram&logoColor=d7075f&labelColor=303030)](https://instagram.com/Darlez.Sec)
+[![TikTok](https://img.shields.io/badge/TIKT0K-101010?style=for-the-badge&logo=tiktok&logoColor=white&labelColor=303030)](https://tiktok.com/@.samsepi0l)
 
 ### 📈 My Stats 
 
