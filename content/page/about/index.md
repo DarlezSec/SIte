@@ -6,7 +6,7 @@ aliases:
   - about-us
   - about-hugo
   - contact
-license: CC @Darlez.Sec
+license: CC BY-NC-ND
 lastmod: '2022-05-15'
 menu:
     main: 
