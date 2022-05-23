@@ -27,13 +27,15 @@ comments: true
 ---
 ### Presentation Of The Community Cer0z Operations Access (COA)
 
+![](https://i0.wp.com/derechodelared.com/wp-content/uploads/2021/03/Capture-the-flag.png)
+
 What is Cer0z Operati0ns Access? Or also known as "Un0z & C3r0z",
 It is a community of the Telegram platform (Open Source) focused
 on computer topics in general, Among them (Pentesting, Cryptography,
 Networking, Computer Forensics, CTF, Programming, Red Team and Blue Team
 among many more topics that abound there, this community has been a few months, 
-Originally founded by ( [Darlez.Sec](https://twitter.com/DarlezSec), [D0lorezH4ze](), [Dilan](https://instagram.com/dilanfeo_) ) 
-The idea of ​​creating Un0z & C3r0z arose from [Darlez.Sec](https://twitter.com/DarlezSec), to have a place where you can hang out with other users talking about computer science in general and be able to play CTF'S and King Of The Hill with the members and administrators.
+Originally founded by [![Darlez.Sec](https://img.shields.io/badge/Darlez.Sec-101010?style=for-the-badge&logo=hackaday&logoColor=ff0000&labelColor=101010)](https://twitter.com/DarlezSec)
+The idea of ​​creating Un0z & C3r0z arose from [![DARLEZ.SEC](https://img.shields.io/badge/DARLEZ.SEC-101010?style=for-the-badge&logo=hackaday&logoColor=ff0000&labelColor=101010)](https://twitter.com/DarlezSec), to have a place where you can hang out with other users talking about computer science in general and be able to play CTF'S and King Of The Hill with the members and administrators.
 ### Why should you join this Community?
 
 * 1.- Group video call 3 times a week pentesting servers focused on CTF.
