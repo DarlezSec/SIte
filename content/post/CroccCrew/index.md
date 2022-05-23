@@ -34,7 +34,82 @@ Usaremos la herramienta de nmap para escanear puertos y versiones...
 
 haremos un `( sudo nmap -sS --min-rate 5000 -sCV -p- -A $ip -oN nmap_all.txt ) `
 
-![nmap](nmap.png)
+```bash
+# Nmap 7.92 scan initiated Fri May  6 14:04:28 2022 as: nmap -sS --min-rate 5000 -sCV -p- -A -oN nmap_all.txt 10.10.87.107
+Warning: 10.10.87.107 giving up on port because retransmission cap hit (10).
+Nmap scan report for 10.10.87.107
+Host is up (0.19s latency).
+Not shown: 40510 closed tcp ports (reset), 25003 filtered tcp ports (no-response)
+PORT      STATE SERVICE       VERSION
+53/tcp    open  domain        Simple DNS Plus
+80/tcp    open  http          Microsoft IIS httpd 10.0
+|_http-server-header: Microsoft-IIS/10.0
+| http-methods: 
+|_  Potentially risky methods: TRACE
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp   open  ldap          Microsoft Windows Active Directory LDAP (Domain: COOCTUS.CORP0., Site: Default-First-Site-Name)
+445/tcp   open  microsoft-ds?
+464/tcp   open  kpasswd5?
+593/tcp   open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  tcpwrapped
+3268/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: COOCTUS.CORP0., Site: Default-First-Site-Name)
+3269/tcp  open  tcpwrapped
+3389/tcp  open  ms-wbt-server Microsoft Terminal Services
+| rdp-ntlm-info: 
+|   Target_Name: COOCTUS
+|   NetBIOS_Domain_Name: COOCTUS
+|   NetBIOS_Computer_Name: DC
+|   DNS_Domain_Name: COOCTUS.CORP
+|   DNS_Computer_Name: DC.COOCTUS.CORP
+|   Product_Version: 10.0.17763
+|_  System_Time: 2022-05-06T19:07:31+00:00
+| ssl-cert: Subject: commonName=DC.COOCTUS.CORP
+| Not valid before: 2022-05-05T17:49:20
+|_Not valid after:  2022-11-04T17:49:20
+|_ssl-date: 2022-05-06T19:08:03+00:00; +1s from scanner time.
+47001/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+49666/tcp open  msrpc         Microsoft Windows RPC
+49669/tcp open  msrpc         Microsoft Windows RPC
+49672/tcp open  msrpc         Microsoft Windows RPC
+49676/tcp open  msrpc         Microsoft Windows RPC
+49693/tcp open  msrpc         Microsoft Windows RPC
+49705/tcp open  msrpc         Microsoft Windows RPC
+49876/tcp open  msrpc         Microsoft Windows RPC
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.92%E=4%D=5/6%OT=53%CT=1%CU=42916%PV=Y%DS=2%DC=T%G=Y%TM=62757219
+OS:%P=x86_64-pc-linux-gnu)SEQ(SP=104%GCD=1%ISR=10C%TI=I%CI=I%II=I%SS=S%TS=U
+OS:)OPS(O1=M506NW8NNS%O2=M506NW8NNS%O3=M506NW8%O4=M506NW8NNS%O5=M506NW8NNS%
+OS:O6=M506NNS)WIN(W1=FFFF%W2=FFFF%W3=FFFF%W4=FFFF%W5=FFFF%W6=FF70)ECN(R=Y%D
+OS:F=Y%T=80%W=FFFF%O=M506NW8NNS%CC=Y%Q=)T1(R=Y%DF=Y%T=80%S=O%A=S+%F=AS%RD=0
+OS:%Q=)T2(R=Y%DF=Y%T=80%W=0%S=Z%A=S%F=AR%O=%RD=0%Q=)T3(R=Y%DF=Y%T=80%W=0%S=
+OS:Z%A=O%F=AR%O=%RD=0%Q=)T4(R=Y%DF=Y%T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)T5(R=Y
+OS:%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=80%W=0%S=A%A=O%F=R
+OS:%O=%RD=0%Q=)T7(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=
+OS:80%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=80%CD=Z
+OS:)
+
+Network Distance: 2 hops
+Service Info: Host: DC; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-security-mode: 
+|   3.1.1: 
+|_    Message signing enabled and required
+| smb2-time: 
+|   date: 2022-05-06T19:07:34
+|_  start_date: N/A
+
+TRACEROUTE (using port 110/tcp)
+HOP RTT       ADDRESS
+1   195.51 ms 10.9.0.1
+2   197.07 ms 10.10.87.107
+```
 
 Explicacion de cada parametro seleccionado:
  
