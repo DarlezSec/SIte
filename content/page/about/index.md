@@ -32,3 +32,4 @@ Hello friend, I'm Darlez.Sec, also known as "samsepi0l" I'm a CTF player and a l
 
 ![HTB-Badge](http://www.hackthebox.eu/badge/image/809288)
 a
+ss
