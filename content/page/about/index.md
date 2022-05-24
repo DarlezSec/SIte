@@ -25,6 +25,7 @@ menu:
 [![Web](https://img.shields.io/badge/WEBSITE-101010?style=for-the-badge&logo=dev.to&logoColor=white&labelColor=030303)](https://darlezsec.vercel.app)
 [![Instagram](https://img.shields.io/badge/instagram-101010?style=for-the-badge&logo=instagram&logoColor=d7075f&labelColor=030303)](https://instagram.com/Darlez.Sec)
 [![TikTok](https://img.shields.io/badge/TIKT0K-101010?style=for-the-badge&logo=tiktok&logoColor=white&labelColor=030303)](https://tiktok.com/@.samsepi0l)
+[![TryHackMe](https://img.shields.io/static/v1?label=&message=+TryHackMe&color=101010&style=for-the-badge&logo=tryhackme&logoColor=white)](https://tryhackme.com/p/darlez.sec)
 
 ### 📈 My Stats 
 
