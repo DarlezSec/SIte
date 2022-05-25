@@ -25,4 +25,4 @@ image = "https://p4.wallpaperbetter.com/wallpaper/978/168/961/linux-microsoft-wi
 
 `Te ha gustado mi Entorno de Escritorio? ¿Quieres tenerlo igual? pasate por mi Github y tendras un tutorial bien explicado como tener tu entorno como el mio.`
 
-[My Desks]("https://github.com/DarlezSec/My-Desks/")
+[My Desks](https://github.com/DarlezSec/My-Desks/)
