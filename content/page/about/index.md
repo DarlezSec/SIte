@@ -14,7 +14,9 @@ menu:
         params:
             icon: user
 ---
-   ![](https://i.pinimg.com/originals/a4/b2/cf/a4b2cf52d8ed2e49e10c7eecca6777a3.gif)
+![Typing SVG](https://readme-typing-svg.herokuapp.com?size=33&color=eeeeee&vCenter=true&width=300&height=37&lines=Hello%20Friend,;Hello%20Friend?;I'm%20Darlez.Sec%20:D)   
+
+![](https://i.pinimg.com/originals/a4/b2/cf/a4b2cf52d8ed2e49e10c7eecca6777a3.gif)
 
 `Hello friend, I'm Darlez.Sec, also known as "samsepi0l" I'm a CTF player and a lover of hacker culture, I'm a student of quantum physics and astronomy, I have a community on Cybersecurity on the Telegram platform where they talk about Pentesting topics , Programming, Computer Forensics, Cryptography among other things... if you like to join you will find the link below in the section of my social networks.`
 

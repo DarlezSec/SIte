@@ -6,13 +6,11 @@ description = "CTF Crocc Crew Nivel insane, donde se ven temas de explotacion a 
 tags = [
 "Writeup",
 "TryHackMe",
-"CTF",
 "Crocc Crew",
 ]
 categories = [
 "TryHackMe",
 "Writeups",
-"CTF",
 ]
 series = ["Themes Guide"]
 aliases = ["migrate-from-jekyl"]
