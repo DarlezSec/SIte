@@ -18,7 +18,7 @@ menu:
 
 ![](https://i.pinimg.com/originals/a4/b2/cf/a4b2cf52d8ed2e49e10c7eecca6777a3.gif)
 
-`Hello friend, I'm Darlez.Sec, also known as "samsepi0l" I'm a CTF player and a lover of hacker culture, I'm a student of quantum physics and astronomy, I have a community on Cybersecurity on the Telegram platform where they talk about Pentesting topics , Programming, Computer Forensics, Cryptography among other things... if you like to join you will find the link below in the section of my social networks.`
+#### Hello friend, I'm Darlez.Sec, also known as "samsepi0l" I'm a CTF player and a lover of hacker culture, I'm a student of quantum physics and astronomy, I have a community on Cybersecurity on the Telegram platform where they talk about Pentesting topics , Programming, Computer Forensics, Cryptography among other things... if you like to join you will find the link below in the section of my social networks.
 
 [![Telegram](https://img.shields.io/static/v1?label=&message=+Telegram&color=030303&style=for-the-badge&logo=Telegram&logoColor=white)](https://t.me/Un0zandC3r0z)
 [![Github](https://img.shields.io/static/v1?label=&message=+Github&color=030303&style=for-the-badge&logo=github&logoColor=%white)](https://github.com/DarlezSec)
