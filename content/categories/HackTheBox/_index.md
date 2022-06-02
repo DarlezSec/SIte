@@ -4,6 +4,6 @@ description: "Category about everything related to the pentesting methodologies 
 slug: "HackTheBox"
 image: "https://vato.cc/content/images/2022/02/htb.png"
 style:
-    background: "#242424"
-    color: "#242424"
+    background: "#131c2c"
+    color: "#90e03e"
 ---

@@ -29,7 +29,7 @@ menu:
 [![TikTok](https://img.shields.io/badge/TIKT0K-101010?style=for-the-badge&logo=tiktok&logoColor=white&labelColor=030303)](https://tiktok.com/@.samsepi0l)
 [![TryHackMe](https://img.shields.io/static/v1?label=&message=+TryHackMe&color=101010&style=for-the-badge&logo=tryhackme&logoColor=white)](https://tryhackme.com/p/darlez.sec)
 
-### 📈 My Stats 
+![Typing SVG](https://readme-typing-svg.herokuapp.com?size=20&color=eeeeee&vCenter=true&width=200&height=37&lines=%F0%9F%93%88%20My%20Stats%20%0A)
 
 ![THM-Badge](https://tryhackme-badges.s3.amazonaws.com/darlez.sec.png)     
 
