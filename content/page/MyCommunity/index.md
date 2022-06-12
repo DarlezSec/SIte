@@ -27,7 +27,7 @@ comments: true
 ---
 ### Presentation Of The Community Cer0z Operations Access (COA)
 
-![](https://i0.wp.com/derechodelared.com/wp-content/uploads/2021/03/Capture-the-flag.png)
+![](com.png)
 
 
 `What is Cer0z Operati0ns Access? Or also known as "Un0z & C3r0z",
