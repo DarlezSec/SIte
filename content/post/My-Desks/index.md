@@ -23,10 +23,17 @@ image = "https://p4.wallpaperbetter.com/wallpaper/978/168/961/linux-microsoft-wi
 
 ![](themes.png)
 
-`Te ha gustado mi Entorno de Escritorio? ¿Quieres tenerlo igual? pasate por mi Github y tendras un tutorial bien explicado como tener tu entorno como el mio.`
-
 [My Desks](https://github.com/DarlezSec/My-Desks/)
 
 ## Debian 11 + Budgie 10.6.1 + Colloid-dark-compact
 
 ![](com.png)
+
+---
+
+## Debian 11 + Budgie 10.6.1 + Colloid-Dark-Compact
+
+![](dess.png)
+
+---
+

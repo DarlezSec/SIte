@@ -1,13 +1,13 @@
 ---
-title: My Community (COA)
+title: My Community
 links:
   - title: My Community Telegram
     description: Community on Cybersecurity,They talk about topics such as Computer Science, Pentesting, Programming, Networking, Computer Forensics, etc.
-    website: https://t.me/Un0zandC3r0z
+    website: https://t.me/CthulhuSecurity
     image: https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mr-robot-1557266089.jpg?crop=0.9765625xw:1xh;center,top&resize=640:*
-  - title: Foro Telegram Un0z & C3r0z
+  - title: Foro Telegram Cthulhu Security
     description: Telegram channel dedicated to uploading content on Cybersecurity, including Courses, Pdf's Books and more
-    website: https://t.me/Cer0z_Rep0sitory  
+    website: https://t.me/Foro_CthulhuSecurity 
     image: https://www.hollywoodreporter.com/wp-content/uploads/2016/07/Mr_Robot_Most_Mind_Bending_Twists_2_H_2016_0.jpg?w=1024
   - title: My Mem0ri3s?
     description: channel where I upload the pentesting methodologies that I apply in different CTF'S that I make, from levels like Insane to Easy from platforms like TryHackMe, HackTheBox, VulnHub etc...
