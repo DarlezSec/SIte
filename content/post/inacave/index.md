@@ -267,8 +267,6 @@ door@cave:~$
 
 #### "Parece que no quiere dejar pasar a nadie" si intentamos iniciar la script nos pedi un inventario que por el momento no tenemos.. entonces solo tenemos una contraseña que nos servira para un futuro
 
-![](adven.png)
-
 #### navegando entre directorios me di cuenta que en /var habia un directorio llamado adventurer entonces tuve la idea de que se estaba haciendo virtual hosting y añadi a mi /etc/hosts adventurer.cave.thm
 #### y lo busque en el navegador y era una llave privada PGP asi que me abri un archivo con nano con el nombre de adventurer.priv copie la llave PGP que nos encontramos en el navegador y la pegue
 
