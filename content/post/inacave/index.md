@@ -2,7 +2,7 @@
 author = "DarlezSec"
 title = "You're in a cave"
 date = "2022-05-26"
-description = "Sample article."
+description = "writeup Ctf You're in a cave TryHackMe."
 tags = [
 "Writeups",
 "TryHackMe",
