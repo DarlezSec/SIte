@@ -1,6 +1,6 @@
 +++
 author = "DarlezSec"
-title = "Writeup You're in a cave Nivel Insane, Plataforma TryHackMe."
+title = "You're in a cave"
 date = "2022-05-26"
 description = "Sample article."
 tags = [
