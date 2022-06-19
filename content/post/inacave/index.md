@@ -15,10 +15,13 @@ series = ["Themes Guide"]
 aliases = ["migrate-from-jekyl"]
 image = "plantilla.png"
 +++
+## Resumen:
+
+#### Metodología: Ctf dónde se ve envenenamiento de un archivo que se ejecuta como un proceso de sistema, le hemos agregado una revshell a ese proceso y al matar el proceso nos lo ha reiniciado y logramos obtener una rshell con root, después de eso se tuvo que salir de un contendor, que contaba con privilegios que introducen problemas de seguridad, dando acceso completo al host; debido a que se genera una carencia de seguridad por la eliminación de las restricciones de Seccomp, AppArmor y del propio sistema Linux. De modo que usado un exploit que su función es que ejecuta código através de el archivo "realse_agent" para crear un controlador secundario cgroup, especificando el archivo "release_agent" y activar el "release_agent" elimina todos los procesos en el cgroup, añadiendo a esto una reverse shell como payload para poder tener un acceso más completo a la maquina host.
+
 ## Etapa de Reconocimiento
 
-#### Comenzaremos escaneando puertos y versiones de los servcios que se esten ejecutando, usaremos la herramienta de nmap para hacer esto.
-#### haremos un nmap -sS para el SYN Port Scan --min-rate 5000 para no no nos envue paquetes menores a 5000 por segundo -p- para escanear los 65536 puertos -A habilite la detección del sistema operativo, la detección de versiones, el escaneo de secuencias de comandos y el rastreo de rutas -O para habilitar la deteccion del sistema operativo -v para el verbose -oN para guardarlo en un archivo por default de nmap, en mi caso yo le asigne el nombre de nmap_all.txt
+####
 
 ```bash 
 PORT     STATE SERVICE    VERSION
@@ -70,7 +73,8 @@ SF:cave,\x20what\x20do\x20you\x20do\?\n")%r(X11Probe,2D,"You\x20find\x20yo
 SF:urself\x20in\x20a\x20cave,\x20what\x20do\x20you\x20do\?\n")%r(FourOhFou
 SF:rRequest,3D,"You\x20find\x20yourself\x20in\x20a\x20cave,\x20what\x20do\
 SF:x20you\x20do\?\nNothing\x20happens\n");
-Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel```
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+```
 
 #### Vemos que hay un "Dec-notes" en anteriores ctfs he sacado banner con netcat y siempre suelo obtener pistas o hasta credenciales asi que intentemos
 
@@ -135,7 +139,7 @@ run.sh
 
 ![](burp.png)
 
-#### como vemos es vulnerable a XXE ML External Entity es una vulnerabilidad presente en las aplicaciones que analizan entradas XML, lo mandamos a repeater y juguemos con el XXE, una forma clasica de Intentamos mostrar el contenido del archivo /etc/passwd es de esta forma
+#### como vemos es vulnerable a ML External Entity es una vulnerabilidad presente en las aplicaciones que analizan entradas XML, lo mandamos a repeater y juguemos con el XXE, una forma clasica de Intentamos mostrar el contenido del archivo /etc/passwd es de esta forma
 
 ```bash
 POST /action.php HTTP/1.1
@@ -173,9 +177,9 @@ Upgrade-Insecure-Requests: 1
 
 ![](users.png)
 
-### como ven son 3 usuarios esqueleton, cave y door.. he intentando navegar entre directorios con el usuario cave y logre encontrar un archivo en /home/cave llamado info.txt donde parece almacenar una contraseña cifrada..
+### como ven son 3 usuarios skeleton, cave y door.. he intentando navegar entre directorios con el usuario cave y logre encontrar un archivo en /home/cave llamado info.txt donde parece almacenar una contraseña cifrada..
 
-![](cave.png)
+![](pok.png)
 
 ## Pregunta 1 ¿Qué era lo raro tallado en la puerta?
 
@@ -362,6 +366,8 @@ door@cave:~$
 
 #### nos pedire una contraseña y usaremos la que estaba en info.txt
 
+#### esto creara un archivo llamado msg y selecciona oldman.gpg para decifrar el mensaje cifrado y agregarlo al archivo msg
+ 
 `gpg --output msg --no-tty oldman.gpg`
 
 #### aqui tambien nos la pedira asi que ponemos la contraseña 
@@ -370,20 +376,25 @@ door@cave:~$
 
 ```bash
 door@cave:~$ cat msg 
-IT'S DANGEROUS TO GO ALONE! TAKE THIS bone-breaking-war-hammer
+IT'S DANGEROUS TO GO ALONE! TAKE THIS bone-*****-******-****
 door@cave:~$ 
 ```
 
 #### ahora exportamos el inventario y con esto ya tendriamos una arma para derrotar al skeleton y nos deberia de dar la contraseña
 
+
 ```bash
-door@cave:~$ export INVENTORY=bone-breaking-war-hammer
+door@cave:~$ export INVENTORY=bo**-b*****g-w**-*****
 door@cave:~$ ./skeleton 
 skeleton:sp***********
 door@cave:~$ 
 ```
 
 #### y ahi esta la contraseña, ahora nos conectamos por ssh
+
+## Pregutna 2 ¿Qué arma usaste para derrotar al esqueleto?
+
+#### la respuesta es el mensaje que nos dio el gpg --output msg --no-tty oldman.gpg esa es el arma que ocuparemos para derrotar al skeleton
 
 ```bash
 ➜  ~ ssh skeleton@10.10.7.105 -p2222
@@ -447,7 +458,7 @@ skeleton   114  0.0  0.1   7636  3240 pts/1    R+   15:29   0:00 ps aux
 skeleton@cave:/tmp$ 
 ```
 
-#### mataremos el proceso 59 que es que tiene permisos de sistema ( Es de alta importancia que ya esten en escucha porque desde ahi ya recibiran la reverse shell )
+#### mataremos el proceso 59 que es que tiene permisos de sistema y el que se esta ejecutando con la script run.sh ( Es de alta importancia que ya esten en escucha porque desde ahi ya recibiran la reverse shell )
 
 `sudo kill -9 59`
 
@@ -493,6 +504,8 @@ root@cave:~#
 [![Como salir de un dokcer privilegiado](https://betterprogramming.pub/escaping-docker-privileged-containers-a7ae7d17f5a1)](https://betterprogramming.pub/escaping-docker-privileged-containers-a7ae7d17f5a1)
 
 #### yo he editado esto un poco.. le he agregado una reverse shell como payload pero primero hagamos nuestra tty full interactiva
+
+## Etapa de Escalada de Privilegios
 
 `python -c 'import pty; pty.spawn("/bin/bash")'`
 
