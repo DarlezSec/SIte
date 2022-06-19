@@ -1,0 +1,59 @@
++++
+author = "DarlezSec"
+title = "Writeup You're in a cave Nivel Insane, Plataforma TryHackMe."
+date = "2022-05-26"
+description = "Sample article."
+tags = [
+"Writeups",
+"TryHackMe",
+]
+categories = [
+"Writeups",
+"TryHackMe",
+]
+series = ["Themes Guide"]
+aliases = ["migrate-from-jekyl"]
+image = "plantilla.png"
++++
+
+##Etapa de Reconocimiento
+
+Comenzaremos escaneando puertos y versiones de los servcios que se esten ejecutando, usaremos la herramienta de nmap para hacer esto.
+haremos un nmap -sS para el SYN Port Scan --min-rate 5000 para no no nos envue paquetes menores a 5000 por segundo -p- para escanear los 65536 puertos -A habilite la detección del sistema operativo, la detección de versiones, el escaneo de secuencias de comandos y el rastreo de rutas -O para habilitar la deteccion del sistema operativo -v para el verbose -oN para guardarlo en un archivo por default de nmap, en mi caso yo le asigne el nombre de nmap_all.txt
+
+```bash Nmap 7.92 scan initiated Sat Jun 18 23:24:00 2022 as: nmap -sS --min-rate 5000 -p- -A -O -v -n -oN nmap 10.10.12.10
+Increasing send delay for 10.10.12.10 from 0 to 5 due to 346 out of 1151 dropped probes since last increase.
+Increasing send delay for 10.10.12.10 from 5 to 10 due to 138 out of 458 dropped probes since last increase.
+Warning: 10.10.12.10 giving up on port because retransmission cap hit (10).
+RTTVAR has grown to over 2.3 seconds, decreasing to 2.0
+RTTVAR has grown to over 2.3 seconds, decreasing to 2.0
+RTTVAR has grown to over 2.3 seconds, decreasing to 2.0
+RTTVAR has grown to over 2.3 seconds, decreasing to 2.0
+RTTVAR has grown to over 2.3 seconds, decreasing to 2.0
+RTTVAR has grown to over 2.3 seconds, decreasing to 2.0
+Nmap scan report for 10.10.12.10
+Host is up (2.6s latency).
+Not shown: 33811 closed tcp ports (reset), 31722 filtered tcp ports (no-response)
+PORT     STATE SERVICE    VERSION
+80/tcp   open  tcpwrapped
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+| http-methods: 
+|_  Supported Methods: OPTIONS
+3333/tcp open  tcpwrapped
+Device type: firewall
+Running (JUST GUESSING): Fortinet embedded (87%)
+OS CPE: cpe:/h:fortinet:fortigate_100d
+Aggressive OS guesses: Fortinet FortiGate 100D firewall (87%)
+No exact OS matches for host (test conditions non-ideal).
+
+TRACEROUTE (using port 443/tcp)
+HOP RTT    ADDRESS
+1   ... 30
+
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+ Nmap done at Sat Jun 18 23:28:47 2022 -- 1 IP address (1 host up) scanned in 286.78 seconds
+```
+
+
+
