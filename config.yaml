@@ -2,16 +2,16 @@ baseurl: https://example.com
 languageCode: en-us
 theme: hugo-theme-stack
 paginate: 5
-title: Darlez.Sec
+title: r3pt0un
 
 languages:
     en:
         languageName: English
-        title: Darlez.Sec
+        title: r3pt0un
         weight: 1
     es:
         languageName: Español
-        title: Darlez.Sec
+        title: r3pt0un
         weight: 2
     ar:
         languageName: عربي
@@ -54,7 +54,7 @@ params:
 
     sidebar:
         emoji: 
-        subtitle: Hi Friend, I'm Darlez.Sec, Interested in Quantum Physics and Computer Science, Prenetation Tester, Addicted to playing CTF.
+        subtitle: I'm Darlez.Sec, User passionate about Pentesting topics as well as Unix-Like Systems.
         avatar: 
             enabled: true
             local: false
