@@ -1,5 +1,5 @@
 ---
-title: My Community
+title: Community
 links:
   - title: My Community Telegram
     description: Community on Cybersecurity,They talk about topics such as Computer Science, Pentesting, Programming, Networking, Computer Forensics, etc.
