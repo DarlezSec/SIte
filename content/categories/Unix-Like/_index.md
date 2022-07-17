@@ -4,6 +4,6 @@ description: "Category about the writeups of the CTF'S that I do of any type of 
 slug: "Unix-Like"
 image: "https://pbs.twimg.com/media/EQZvDK4UEAIX0Iw.jpg"
 style:
-    background: ""
-    color: ""
+    background: "#F6F5F4"
+    color: "#F6F5F4"
 ---
