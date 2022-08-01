@@ -1,6 +1,6 @@
 +++
 author = "DarlezSec"
-title = "Desktop-Highlights"
+title = "How Install Bedrock Linux"
 date = "2022-07-16"
 description = "Post where I will publish all my desktop environments and configurations on wm."
 tags = [
@@ -13,8 +13,9 @@ categories = [
 ]
 series = ["Themes Guide"]
 aliases = ["migrate-from-jekyl"]
-image = "plantilla.png"
+image = "https://www.muylinux.com/wp-content/uploads/2019/04/BedrockLinux.png"
 +++
 
-###  [ XFCE ] my setup with the Colloid-dark-compact theme and the Plank dock.
-![](desktop1.png)
+![](https://github.com/DarlezSec/suckless-dwm-dots/blob/main/bedrock.png?raw=true)
+
+## Como Instalar Bedrock Linux
